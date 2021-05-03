@@ -7,22 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7270A1C28875D7B2D5827CAF /* libPods-GuestBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0D97AADE6FCFED3B97CD7F /* libPods-GuestBook.a */; };
+		EA13F74826409C6600D88722 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F74726409C6600D88722 /* Login.swift */; };
+		EA13F74A2640A40F00D88722 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F7492640A40F00D88722 /* Register.swift */; };
 		EA58EAED26407F18003933BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58EAEC26407F18003933BF /* AppDelegate.swift */; };
 		EA58EAEF26407F18003933BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58EAEE26407F18003933BF /* SceneDelegate.swift */; };
-		EA58EAF126407F18003933BF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58EAF026407F18003933BF /* ViewController.swift */; };
 		EA58EAF426407F18003933BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA58EAF226407F18003933BF /* Main.storyboard */; };
 		EA58EAF626407F19003933BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA58EAF526407F19003933BF /* Assets.xcassets */; };
-		EA58EAF926407F19003933BF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA58EAF726407F19003933BF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C3D22426D16FBC136B3EB88 /* Pods-GuestBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuestBook.release.xcconfig"; path = "Target Support Files/Pods-GuestBook/Pods-GuestBook.release.xcconfig"; sourceTree = "<group>"; };
+		6F0D97AADE6FCFED3B97CD7F /* libPods-GuestBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GuestBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B82AB7ADA676CAE699EAF42 /* Pods-GuestBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuestBook.debug.xcconfig"; path = "Target Support Files/Pods-GuestBook/Pods-GuestBook.debug.xcconfig"; sourceTree = "<group>"; };
+		EA13F74726409C6600D88722 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		EA13F7492640A40F00D88722 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		EA58EAE926407F18003933BF /* GuestBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuestBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA58EAEC26407F18003933BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA58EAEE26407F18003933BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EA58EAF026407F18003933BF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EA58EAF326407F18003933BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA58EAF526407F19003933BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		EA58EAF826407F19003933BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA58EAFA26407F19003933BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -31,17 +35,46 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7270A1C28875D7B2D5827CAF /* libPods-GuestBook.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7C1354A2D318651C41A23406 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F0D97AADE6FCFED3B97CD7F /* libPods-GuestBook.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E2F4CA1E6DB8A139529041E7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9B82AB7ADA676CAE699EAF42 /* Pods-GuestBook.debug.xcconfig */,
+				6C3D22426D16FBC136B3EB88 /* Pods-GuestBook.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		EA13F74B2640BCC200D88722 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				EA13F74726409C6600D88722 /* Login.swift */,
+				EA13F7492640A40F00D88722 /* Register.swift */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
 		EA58EAE026407F18003933BF = {
 			isa = PBXGroup;
 			children = (
 				EA58EAEB26407F18003933BF /* GuestBook */,
 				EA58EAEA26407F18003933BF /* Products */,
+				E2F4CA1E6DB8A139529041E7 /* Pods */,
+				7C1354A2D318651C41A23406 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +89,11 @@
 		EA58EAEB26407F18003933BF /* GuestBook */ = {
 			isa = PBXGroup;
 			children = (
+				EA13F74B2640BCC200D88722 /* Modules */,
 				EA58EAEC26407F18003933BF /* AppDelegate.swift */,
 				EA58EAEE26407F18003933BF /* SceneDelegate.swift */,
-				EA58EAF026407F18003933BF /* ViewController.swift */,
 				EA58EAF226407F18003933BF /* Main.storyboard */,
 				EA58EAF526407F19003933BF /* Assets.xcassets */,
-				EA58EAF726407F19003933BF /* LaunchScreen.storyboard */,
 				EA58EAFA26407F19003933BF /* Info.plist */,
 			);
 			path = GuestBook;
@@ -74,6 +106,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EA58EAFD26407F19003933BF /* Build configuration list for PBXNativeTarget "GuestBook" */;
 			buildPhases = (
+				511D57868FFBFF6016441A39 /* [CP] Check Pods Manifest.lock */,
 				EA58EAE526407F18003933BF /* Sources */,
 				EA58EAE626407F18003933BF /* Frameworks */,
 				EA58EAE726407F18003933BF /* Resources */,
@@ -124,7 +157,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA58EAF926407F19003933BF /* LaunchScreen.storyboard in Resources */,
 				EA58EAF626407F19003933BF /* Assets.xcassets in Resources */,
 				EA58EAF426407F18003933BF /* Main.storyboard in Resources */,
 			);
@@ -132,13 +164,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		511D57868FFBFF6016441A39 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GuestBook-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		EA58EAE526407F18003933BF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EA58EAF126407F18003933BF /* ViewController.swift in Sources */,
+				EA13F74826409C6600D88722 /* Login.swift in Sources */,
 				EA58EAED26407F18003933BF /* AppDelegate.swift in Sources */,
+				EA13F74A2640A40F00D88722 /* Register.swift in Sources */,
 				EA58EAEF26407F18003933BF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,14 +210,6 @@
 				EA58EAF326407F18003933BF /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		EA58EAF726407F19003933BF /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EA58EAF826407F19003933BF /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -283,6 +333,7 @@
 		};
 		EA58EAFE26407F19003933BF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B82AB7ADA676CAE699EAF42 /* Pods-GuestBook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -302,6 +353,7 @@
 		};
 		EA58EAFF26407F19003933BF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C3D22426D16FBC136B3EB88 /* Pods-GuestBook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
