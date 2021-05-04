@@ -10,6 +10,9 @@
 		7270A1C28875D7B2D5827CAF /* libPods-GuestBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0D97AADE6FCFED3B97CD7F /* libPods-GuestBook.a */; };
 		EA13F74826409C6600D88722 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F74726409C6600D88722 /* Login.swift */; };
 		EA13F74A2640A40F00D88722 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F7492640A40F00D88722 /* Register.swift */; };
+		EA13F74D2641142500D88722 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F74C2641142500D88722 /* MyTextField.swift */; };
+		EA13F74F264124FC00D88722 /* MyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F74E264124FC00D88722 /* MyButton.swift */; };
+		EA13F75126412D6000D88722 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F75026412D6000D88722 /* Loading.swift */; };
 		EA58EAED26407F18003933BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58EAEC26407F18003933BF /* AppDelegate.swift */; };
 		EA58EAEF26407F18003933BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58EAEE26407F18003933BF /* SceneDelegate.swift */; };
 		EA58EAF426407F18003933BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA58EAF226407F18003933BF /* Main.storyboard */; };
@@ -22,6 +25,9 @@
 		9B82AB7ADA676CAE699EAF42 /* Pods-GuestBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuestBook.debug.xcconfig"; path = "Target Support Files/Pods-GuestBook/Pods-GuestBook.debug.xcconfig"; sourceTree = "<group>"; };
 		EA13F74726409C6600D88722 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		EA13F7492640A40F00D88722 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		EA13F74C2641142500D88722 /* MyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTextField.swift; sourceTree = "<group>"; };
+		EA13F74E264124FC00D88722 /* MyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyButton.swift; sourceTree = "<group>"; };
+		EA13F75026412D6000D88722 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		EA58EAE926407F18003933BF /* GuestBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuestBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA58EAEC26407F18003933BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA58EAEE26407F18003933BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,8 +68,11 @@
 		EA13F74B2640BCC200D88722 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EA13F75026412D6000D88722 /* Loading.swift */,
 				EA13F74726409C6600D88722 /* Login.swift */,
 				EA13F7492640A40F00D88722 /* Register.swift */,
+				EA13F74C2641142500D88722 /* MyTextField.swift */,
+				EA13F74E264124FC00D88722 /* MyButton.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -198,6 +207,9 @@
 				EA58EAED26407F18003933BF /* AppDelegate.swift in Sources */,
 				EA13F74A2640A40F00D88722 /* Register.swift in Sources */,
 				EA58EAEF26407F18003933BF /* SceneDelegate.swift in Sources */,
+				EA13F75126412D6000D88722 /* Loading.swift in Sources */,
+				EA13F74D2641142500D88722 /* MyTextField.swift in Sources */,
+				EA13F74F264124FC00D88722 /* MyButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
