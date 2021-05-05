@@ -1,5 +1,5 @@
 //
-//  Register.swift
+//  RegisterVC.swift
 //  GuestBook
 //
 //  Created by Антон Смирнов on 4.05.21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class Register: UIViewController {
+class RegisterVC: UIViewController {
 
     //MARK: - Outlets
     
@@ -16,13 +16,13 @@ class Register: UIViewController {
             choosePhotoImage.layer.cornerRadius = 50
         }
     }
-    @IBOutlet weak var chooseYourPhotoButton: UIButton!
+    @IBOutlet weak var chooseYourPhotoButton: MyButton!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var nameField: UITextField!
+    @IBOutlet weak var nameField: MyTextField!
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: MyTextField!
     @IBOutlet weak var passwordLabel: UILabel!
-    @IBOutlet weak var passwordField: UITextField!
+    @IBOutlet weak var passwordField: MyTextField!
 
     //MARK: - Variables
 
@@ -108,7 +108,7 @@ class Register: UIViewController {
 
 //MARK: - Extensions
 
-extension Register: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension RegisterVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let selectedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             self.choosePhotoImage.image = selectedImage

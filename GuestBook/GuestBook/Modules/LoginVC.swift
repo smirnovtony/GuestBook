@@ -1,5 +1,5 @@
 //
-//  Login.swift
+//  LoginVC.swift
 //  GuestBook
 //
 //  Created by Антон Смирнов on 4.05.21.
@@ -7,16 +7,16 @@
 
 import UIKit
 
-class Login: UIViewController {
+class LoginVC: UIViewController {
 
     //MARK: - Outlets
 
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var emailField: MyTextField!
     @IBOutlet weak var passwordLabel: UILabel!
-    @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var registrationButton: UIButton!
+    @IBOutlet weak var passwordField: MyTextField!
+    @IBOutlet weak var loginButton: MyButton!
+    @IBOutlet weak var registrationButton: MyButton!
 
     //MARK: - Variables
 
@@ -68,11 +68,20 @@ class Login: UIViewController {
 
     //MARK: - Actions
 
-    @IBAction func loginButtonTapped(_ sender: Any?) {
-        guard let email = emailField.text else { return }
-        guard let password = passwordField.text else { return }
-
+    @IBAction func printuser(_ sender: Any) {
+        print(NetworkManager.shared.user)
     }
 
+    @IBAction func loginButtonTapped(_ sender: Any?) {
+        if let email = self.emailField.text,
+           let password = self.passwordField.text {
+            NetworkManager.shared.login(withEmail: email, password: password) { (user) in
+                }
+            }
+        }
+    }
 
 }
+
+
+//}
