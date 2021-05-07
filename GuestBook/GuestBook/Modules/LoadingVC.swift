@@ -11,8 +11,9 @@ class LoadingVC: UIViewController {
 
     //MARK: - Outlets
 
+  
     @IBOutlet weak var indicator: UIActivityIndicatorView!
-
+    
     //MARK: - Lifecycle
 
     override func viewDidLoad() {

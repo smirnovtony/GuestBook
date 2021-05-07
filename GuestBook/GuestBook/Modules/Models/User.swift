@@ -6,39 +6,33 @@
 //
 
 import Foundation
+import ObjectMapper
 
-struct User: Codable {
-    var name: String
-    var avatar: String
-    var id: Int
+class User: Mappable {
+    var user: String = ""
+    var name: String = ""
+    var avatar: String = ""
+    var id: Int = 0
     var isAdmin: Int?
-    var email: String
-    var accessToken: String
+    var email: String = ""
+    var createdAt: String?
+    var updatedAt: String?
+    var accessToken: String?
+    var expiresAt: String?
 
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        name = try container.decode(String.self, forKey: .name)
-        avatar = try container.decode(String.self, forKey: .avatar)
-        email = try container.decode(String.self, forKey: .email)
-        id = try container.decode(Int.self, forKey: .id)
-        accessToken = try container.decode(String.self, forKey: .accessToken)
-        isAdmin = try container.decodeIfPresent(Int.self, forKey: .isAdmin)
+    required init?(map: Map) {
     }
-    enum CodingKeys: String, CodingKey {
-        case name
-        case avatar = "avatar"
-        case accessToken = "access_token"
-        case id
-        case isAdmin = "is_admin"
-        case email
-        case password
-    }
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(name, forKey: .name)
-        try container.encode(avatar, forKey: .avatar)
-        try container.encode(id, forKey: .id)
-        try container.encode(isAdmin, forKey: .isAdmin)
-        try container.encode(email, forKey: .email)
+
+    func mapping(map: Map) {
+        user <- map["user"]
+        name <- map["name"]
+        avatar <- map["avatar"]
+        id <- map["id"]
+        isAdmin <- map["is_admin"]
+        email <- map["email"]
+        createdAt <- map["created_at"]
+        updatedAt <- map["updated_at"]
+        accessToken <- map["access_token"]
+        expiresAt <- map["expires_at"]
     }
 }

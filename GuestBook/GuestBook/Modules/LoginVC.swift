@@ -12,9 +12,17 @@ class LoginVC: UIViewController {
     //MARK: - Outlets
 
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var emailField: MyTextField!
+    @IBOutlet weak var emailField: MyTextField!{
+        didSet {
+            emailField.text = "test@gmail.com"
+        }
+    }
     @IBOutlet weak var passwordLabel: UILabel!
-    @IBOutlet weak var passwordField: MyTextField!
+    @IBOutlet weak var passwordField: MyTextField! {
+        didSet {
+            passwordField.text = "12345678"
+        }
+    }
     @IBOutlet weak var loginButton: MyButton!
     @IBOutlet weak var registrationButton: MyButton!
 
@@ -70,18 +78,24 @@ class LoginVC: UIViewController {
 
     @IBAction func printuser(_ sender: Any) {
         print(NetworkManager.shared.user)
+        print(NetworkManager.shared.token)
     }
 
-    @IBAction func loginButtonTapped(_ sender: Any?) {
+
+    @IBAction func dataArray(_ sender: Any) {
+        NetworkManager.shared.getComments()
+//        NetworkManager.shared.getMeta()
+//        NetworkManager.shared.getlinks()
+    }
+
+    @IBAction func loginButtonTapped(_ sender: Any) {
         if let email = self.emailField.text,
            let password = self.passwordField.text {
-            NetworkManager.shared.login(withEmail: email, password: password) { (user) in
-                }
-            }
+            NetworkManager.shared.login(withEmail: email, password: password)
+
         }
     }
 
 }
 
 
-//}

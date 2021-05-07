@@ -6,12 +6,39 @@
 //
 
 import Foundation
+import ObjectMapper
 
-struct Answer: Decodable {
-    let id: Int
-    let post_id: Int
-    let user_id: Int
-    let message: String
-    let created_at: String
-    let updated_at: String
+class Answer: Mappable {
+    var message: String = ""
+    required init?(map: Map) {
+    }
+
+    init() {
+    }
+
+    func mapping(map: Map) {
+        message <- map["message"]
+    }
 }
+
+
+//struct Answer: Decodable {
+//    let id: Int
+//    let postId: Int
+//    let userId: Int
+//    let message: String
+//    let createdAt: String
+//    let updatedAt: String
+//
+//    enum CodingKeys: String, CodingKey {
+//        case id
+//        case postId = "post_id"
+//        case userId = "user_id"
+//        case message
+//        case createdAt = "created_at"
+//        case updatedAt = "updated_at"
+//    }
+//}
+
+
+

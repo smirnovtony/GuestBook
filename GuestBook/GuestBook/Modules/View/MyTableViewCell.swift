@@ -9,25 +9,31 @@ import UIKit
 
 class MyTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var idLabelCell: MyLabel!
-    @IBOutlet weak var answerLabelCell: MyLabel!
-    @IBOutlet weak var timeLabelCell: UILabel!
+    @IBOutlet weak var nameLabel: MyLabel!
+    @IBOutlet weak var avatarImage: UIImageView!
+    @IBOutlet weak var titleLabel: MyLabel!
+    @IBOutlet weak var messageLabel: MyLabel!
 
-
-    func setCell(model: Answer) {
-        self.idLabelCell.text = String(model.user_id)
-        self.answerLabelCell.text = model.message
-        self.timeLabelCell.text = model.created_at
+    func setCell(model: Comment) {
+        // картинка
+//        guard let url = URL(string: model.user!.avatar ) else { return } // сделать что-то с FORCE UNWRAP
+//        UIImage.loadFrom(url: url) { image in
+//            self.avatarImage = image
+//        }
+        self.nameLabel.text = model.user?.name
+        self.titleLabel.text = model.title
+        self.messageLabel.text = model.message
     }
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+    }
+
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
     
 }

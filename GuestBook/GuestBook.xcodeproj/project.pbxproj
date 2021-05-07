@@ -19,13 +19,16 @@
 		EA13F76126426D3C00D88722 /* MyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F76026426D3C00D88722 /* MyLabel.swift */; };
 		EA13F7632642747000D88722 /* GetListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F7622642747000D88722 /* GetListVC.swift */; };
 		EA13F7652642912500D88722 /* Answer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F7642642912500D88722 /* Answer.swift */; };
-		EA13F769264292F500D88722 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F768264292F500D88722 /* Message.swift */; };
 		EA13F7742642D2B300D88722 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F7722642D2B300D88722 /* MyTableViewCell.swift */; };
 		EA13F7752642D2B300D88722 /* MyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA13F7732642D2B300D88722 /* MyTableViewCell.xib */; };
+		EA13F77C2644270600D88722 /* Links.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F77B2644270600D88722 /* Links.swift */; };
+		EA13F77E26442A0C00D88722 /* Meta.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F77D26442A0C00D88722 /* Meta.swift */; };
 		EA58EAED26407F18003933BF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58EAEC26407F18003933BF /* AppDelegate.swift */; };
 		EA58EAEF26407F18003933BF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA58EAEE26407F18003933BF /* SceneDelegate.swift */; };
 		EA58EAF426407F18003933BF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA58EAF226407F18003933BF /* Main.storyboard */; };
 		EA58EAF626407F19003933BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA58EAF526407F19003933BF /* Assets.xcassets */; };
+		EAC6D1E026451FFD0038A0BC /* AnswersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6D1DF26451FFD0038A0BC /* AnswersVC.swift */; };
+		EAC6D1EA264551D40038A0BC /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6D1E9264551D40038A0BC /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,15 +46,18 @@
 		EA13F76026426D3C00D88722 /* MyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLabel.swift; sourceTree = "<group>"; };
 		EA13F7622642747000D88722 /* GetListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetListVC.swift; sourceTree = "<group>"; };
 		EA13F7642642912500D88722 /* Answer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Answer.swift; sourceTree = "<group>"; };
-		EA13F768264292F500D88722 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		EA13F7722642D2B300D88722 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		EA13F7732642D2B300D88722 /* MyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyTableViewCell.xib; sourceTree = "<group>"; };
+		EA13F77B2644270600D88722 /* Links.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Links.swift; sourceTree = "<group>"; };
+		EA13F77D26442A0C00D88722 /* Meta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meta.swift; sourceTree = "<group>"; };
 		EA58EAE926407F18003933BF /* GuestBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GuestBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA58EAEC26407F18003933BF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA58EAEE26407F18003933BF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		EA58EAF326407F18003933BF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA58EAF526407F19003933BF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA58EAFA26407F19003933BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EAC6D1DF26451FFD0038A0BC /* AnswersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersVC.swift; sourceTree = "<group>"; };
+		EAC6D1E9264551D40038A0BC /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,10 +93,11 @@
 			isa = PBXGroup;
 			children = (
 				EA13F7582641B81700D88722 /* Networking */,
-				EA13F75026412D6000D88722 /* LoadingVC.swift */,
 				EA13F74726409C6600D88722 /* LoginVC.swift */,
+				EA13F75026412D6000D88722 /* LoadingVC.swift */,
 				EA13F7492640A40F00D88722 /* RegisterVC.swift */,
 				EA13F7622642747000D88722 /* GetListVC.swift */,
+				EAC6D1DF26451FFD0038A0BC /* AnswersVC.swift */,
 				EA13F7762642EB8E00D88722 /* View */,
 				EA13F75D2641D59D00D88722 /* Models */,
 				EA13F76026426D3C00D88722 /* MyLabel.swift */,
@@ -112,9 +119,11 @@
 		EA13F75D2641D59D00D88722 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EA13F75E2641D5BC00D88722 /* User.swift */,
+				EAC6D1E9264551D40038A0BC /* Comment.swift */,
 				EA13F7642642912500D88722 /* Answer.swift */,
-				EA13F768264292F500D88722 /* Message.swift */,
+				EA13F75E2641D5BC00D88722 /* User.swift */,
+				EA13F77D26442A0C00D88722 /* Meta.swift */,
+				EA13F77B2644270600D88722 /* Links.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -263,6 +272,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC6D1E026451FFD0038A0BC /* AnswersVC.swift in Sources */,
 				EA13F7632642747000D88722 /* GetListVC.swift in Sources */,
 				EA13F7652642912500D88722 /* Answer.swift in Sources */,
 				EA13F74826409C6600D88722 /* LoginVC.swift in Sources */,
@@ -270,12 +280,14 @@
 				EA13F74A2640A40F00D88722 /* RegisterVC.swift in Sources */,
 				EA58EAEF26407F18003933BF /* SceneDelegate.swift in Sources */,
 				EA13F75126412D6000D88722 /* LoadingVC.swift in Sources */,
+				EA13F77C2644270600D88722 /* Links.swift in Sources */,
 				EA13F75C2641CC0A00D88722 /* NetworkManager.swift in Sources */,
+				EA13F77E26442A0C00D88722 /* Meta.swift in Sources */,
 				EA13F7742642D2B300D88722 /* MyTableViewCell.swift in Sources */,
 				EA13F74D2641142500D88722 /* MyTextField.swift in Sources */,
 				EA13F76126426D3C00D88722 /* MyLabel.swift in Sources */,
 				EA13F75A2641B94500D88722 /* EndPoints.swift in Sources */,
-				EA13F769264292F500D88722 /* Message.swift in Sources */,
+				EAC6D1EA264551D40038A0BC /* Comment.swift in Sources */,
 				EA13F75F2641D5BC00D88722 /* User.swift in Sources */,
 				EA13F74F264124FC00D88722 /* MyButton.swift in Sources */,
 			);
