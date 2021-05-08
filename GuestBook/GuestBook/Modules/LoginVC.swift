@@ -39,7 +39,18 @@ class LoginVC: UIViewController {
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
+
+        if !NetworkManager.shared.token.isEmpty {
+            performSegue(withIdentifier: "LoadingVC", sender: self)
+        } else {
+            return
+        }
         super.viewDidLoad()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.userAlreadylogged()
+
     }
 
     //MARK: - Functions
@@ -51,6 +62,13 @@ class LoginVC: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if touches.first != nil {
             view.endEditing(true)
+        }
+    }
+    private func userAlreadylogged() {
+        if UserDefaults.standard.value(forKey: "tokenData") != nil {
+            self.performSegue(withIdentifier: "LoadingVC", sender: self)
+        } else {
+            return
         }
     }
     //MARK: - LogInConditions
@@ -92,6 +110,12 @@ class LoginVC: UIViewController {
         if let email = self.emailField.text,
            let password = self.passwordField.text {
             NetworkManager.shared.login(withEmail: email, password: password)
+
+            if !NetworkManager.shared.token.isEmpty {
+                alert(title: "Error!", message: "Authorization Failed")
+            } else {
+                self.performSegue(withIdentifier: "LoadingVC", sender: Any?.self)
+            }
 
         }
     }

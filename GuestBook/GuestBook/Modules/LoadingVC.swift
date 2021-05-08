@@ -28,10 +28,10 @@ class LoadingVC: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.indicatorLoading.stopAnimating()
             NetworkManager.shared.getComments()
             NetworkManager.shared.getMeta()
             NetworkManager.shared.getlinks()
+            self.indicatorLoading.stopAnimating()
             self.performSegue(withIdentifier: "Loading", sender: self)
             
         }

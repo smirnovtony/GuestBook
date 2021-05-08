@@ -9,11 +9,11 @@ import UIKit
 
 class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+
+
     //MARK: - Outlets
 
     @IBOutlet weak var answerTableView: UITableView!
-
-
 
     //MARK: - Variables
 
@@ -29,12 +29,10 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var selectedMessageId: [Answer]?
 
-
-
-    // НЕ УДАЛЯТЬ!!
-//    var recordsArray: [Int] = Array()
-//    var limit = 10
-//    let totalEnteries = 39 //NetworkManager.shared.linksDict["last"]
+    var limit = NetworkManager.shared.meta?.perPage
+    let totalEnteries = NetworkManager.shared.meta?.total
+    var totalPage = NetworkManager.shared.meta?.lastPage
+    var currentPage = 1
 
     //MARK: - Lifecycle
 
@@ -43,15 +41,9 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.answerTableView.dataSource = self
         self.answerTableView.delegate = self
         self.answerTableView.register(UINib(nibName: "MyTableViewCell", bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
+
         self.navigationItem.setHidesBackButton(true, animated:true)
         self.loading()
-
-        // НЕ УДАЛЯТЬ!!
-//        var index = 0
-//        while index < limit {
-//            recordsArray.append(index)
-//            index = index + 1
-//        }
     }
 
 //MARK: - TableView
@@ -69,7 +61,7 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if filteredAnswers[indexPath.row].answersCount == 0 {
-            let alertController = UIAlertController(title: "Not answers",
+            let alertController = UIAlertController(title: "No any answers!",
                                                     message: "",
                                                     preferredStyle: .alert)
             let okAction = UIAlertAction(title: "OK", style: .destructive)
@@ -92,33 +84,30 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             self.navigationController?.popViewController(animated: false)
         }
     }
-    // НЕ УДАЛЯТЬ!!
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if indexPath.row == recordsArray.count - 1 {
-//            // we are at last cell load more content
-//            if recordsArray.count < totalEnteries {
-//                // we need to bring more records as there are some pending records available
-//                var index = recordsArray.count
-//                limit = index + 20
-//                while index < limit {
-//                    recordsArray.append(index)
-//                    index = index + 1
-//                }
-//                self.perform(#selector(loadTable), with: nil, afterDelay: 2.0)
-//            }
-//        }
-//    }
+
+    private func refreshData(withPage: String) {
+        self.filteredAnswers.removeAll()
+        NetworkManager.shared.getCommentsNext(with: withPage)
+        self.filteredAnswers.append(contentsOf: NetworkManager.shared.comment)
+        print(NetworkManager.shared.comment.count)
+    }
+
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard totalEnteries != nil else { return }
+        guard let totalPage = totalPage else { return }
+        guard let totalPage1 = totalPage else { return }
+        if currentPage < totalPage1 && indexPath.row == filteredAnswers.count - 1 {
+            currentPage += 1
+            refreshData(withPage: String(currentPage))
+
+        }
+    }
 //    @objc func loadTable() {
 //        self.answerTableView.reloadData()
 //    }
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
-
-    //MARK: - Functions
-
-
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 
     //MARK: - Actions
 
@@ -131,19 +120,4 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     }
 }
-
-//        for i in NetworkManager.shared.comment {
-//            print()
-//            print("avatar  \(i.user?.avatar)")
-//            print("name  \(i.user?.name)")
-//            print("id  \(i.user?.id)")
-//            print("email  \(i.user?.email)")
-//            print("message   \(i.message)")
-//            print("title   \(i.title)")
-//            if i.answers != nil {
-//                for z in i.answers! {
-//                    print("answers   \(z.message)")
-//                }
-//            }
-//        }
 
