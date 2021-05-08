@@ -29,6 +29,10 @@
 		EA58EAF626407F19003933BF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA58EAF526407F19003933BF /* Assets.xcassets */; };
 		EAC6D1E026451FFD0038A0BC /* AnswersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6D1DF26451FFD0038A0BC /* AnswersVC.swift */; };
 		EAC6D1EA264551D40038A0BC /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6D1E9264551D40038A0BC /* Comment.swift */; };
+		EAC6D1EC264650020038A0BC /* Data+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6D1EB264650020038A0BC /* Data+Ex.swift */; };
+		EAC6D1F4264659A50038A0BC /* AnswersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6D1F2264659A50038A0BC /* AnswersTableViewCell.swift */; };
+		EAC6D1F5264659A50038A0BC /* AnswersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC6D1F3264659A50038A0BC /* AnswersTableViewCell.xib */; };
+		EAC6D1F726465C6D0038A0BC /* UIImage+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC6D1F626465C6D0038A0BC /* UIImage+Ex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +62,10 @@
 		EA58EAFA26407F19003933BF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAC6D1DF26451FFD0038A0BC /* AnswersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersVC.swift; sourceTree = "<group>"; };
 		EAC6D1E9264551D40038A0BC /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		EAC6D1EB264650020038A0BC /* Data+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ex.swift"; sourceTree = "<group>"; };
+		EAC6D1F2264659A50038A0BC /* AnswersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswersTableViewCell.swift; sourceTree = "<group>"; };
+		EAC6D1F3264659A50038A0BC /* AnswersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnswersTableViewCell.xib; sourceTree = "<group>"; };
+		EAC6D1F626465C6D0038A0BC /* UIImage+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +141,7 @@
 			children = (
 				EA13F7772642EBA000D88722 /* Xibs */,
 				EA13F7722642D2B300D88722 /* MyTableViewCell.swift */,
+				EAC6D1F2264659A50038A0BC /* AnswersTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -141,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				EA13F7732642D2B300D88722 /* MyTableViewCell.xib */,
+				EAC6D1F3264659A50038A0BC /* AnswersTableViewCell.xib */,
 			);
 			path = Xibs;
 			sourceTree = "<group>";
@@ -167,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				EA13F74B2640BCC200D88722 /* Modules */,
+				EAC6D1ED264652690038A0BC /* Extensions */,
 				EA58EAEC26407F18003933BF /* AppDelegate.swift */,
 				EA58EAEE26407F18003933BF /* SceneDelegate.swift */,
 				EA58EAF226407F18003933BF /* Main.storyboard */,
@@ -174,6 +185,15 @@
 				EA58EAFA26407F19003933BF /* Info.plist */,
 			);
 			path = GuestBook;
+			sourceTree = "<group>";
+		};
+		EAC6D1ED264652690038A0BC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EAC6D1EB264650020038A0BC /* Data+Ex.swift */,
+				EAC6D1F626465C6D0038A0BC /* UIImage+Ex.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +254,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC6D1F5264659A50038A0BC /* AnswersTableViewCell.xib in Resources */,
 				EA58EAF626407F19003933BF /* Assets.xcassets in Resources */,
 				EA13F7752642D2B300D88722 /* MyTableViewCell.xib in Resources */,
 				EA58EAF426407F18003933BF /* Main.storyboard in Resources */,
@@ -279,6 +300,7 @@
 				EA58EAED26407F18003933BF /* AppDelegate.swift in Sources */,
 				EA13F74A2640A40F00D88722 /* RegisterVC.swift in Sources */,
 				EA58EAEF26407F18003933BF /* SceneDelegate.swift in Sources */,
+				EAC6D1F726465C6D0038A0BC /* UIImage+Ex.swift in Sources */,
 				EA13F75126412D6000D88722 /* LoadingVC.swift in Sources */,
 				EA13F77C2644270600D88722 /* Links.swift in Sources */,
 				EA13F75C2641CC0A00D88722 /* NetworkManager.swift in Sources */,
@@ -287,7 +309,9 @@
 				EA13F74D2641142500D88722 /* MyTextField.swift in Sources */,
 				EA13F76126426D3C00D88722 /* MyLabel.swift in Sources */,
 				EA13F75A2641B94500D88722 /* EndPoints.swift in Sources */,
+				EAC6D1F4264659A50038A0BC /* AnswersTableViewCell.swift in Sources */,
 				EAC6D1EA264551D40038A0BC /* Comment.swift in Sources */,
+				EAC6D1EC264650020038A0BC /* Data+Ex.swift in Sources */,
 				EA13F75F2641D5BC00D88722 /* User.swift in Sources */,
 				EA13F74F264124FC00D88722 /* MyButton.swift in Sources */,
 			);

@@ -17,13 +17,11 @@ class RegisterVC: UIViewController {
         }
     }
     @IBOutlet weak var chooseYourPhotoButton: MyButton!
-    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var nameField: MyTextField!
-    @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var emailField: MyTextField!
-    @IBOutlet weak var passwordLabel: UILabel!
     @IBOutlet weak var passwordField: MyTextField!
-
+    @IBOutlet weak var confirmPasswordField: MyTextField!
+    
     //MARK: - Variables
 
     private var name: String {
@@ -66,20 +64,27 @@ class RegisterVC: UIViewController {
     }
 
     @IBAction func registerButtonTapped(_ sender: Any?) {
-        if logInConditions() {
+        if regFieldsConditions() {
+            if let name = self.nameField.text,
+               let email = self.emailField.text,
+               let password = self.passwordField.text,
+               let confirmPassword = self.confirmPasswordField.text
+            {
+                NetworkManager.shared.register(withName: name, email: email, password: password, passwordConfirm: confirmPassword)
+            }
 //            self.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
         }
     }
     //MARK: - LogInConditions
 
-    private func logInConditions() -> Bool {
+    private func regFieldsConditions() -> Bool {
         if self.name.isEmpty, self.email.isEmpty, self.password.isEmpty {
             alert(title: "Error", message: "Fill in all the fields")
         } else if self.name == self.password {
             alert(title: "Error", message: "The password must not be the same as the name")
         } else if self.email == self.password {
             alert(title: "Error", message: "The password must not be the same as the email")
-        } else if !self.email.isEmpty, isValid(email) {
+        } else if self.email.isEmpty, isValid(email) {
             alert(title: "Error", message: "Сheck the entered email")
         } else {
             successfulCondition = true

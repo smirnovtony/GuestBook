@@ -9,13 +9,13 @@ import Foundation
 import ObjectMapper
 
 class Meta: Mappable {
-    var currentPage: String?
-    var from: String?
-    var lastPage: String?
+    var currentPage: Int?
+    var from: Int??
+    var lastPage: Int??
     var path: String?
-    var perPage: String?
-    var to: String?
-    var total: String?
+    var perPage: Int?
+    var to: Int?
+    var total: Int?
     required init?(map: Map) {
     }
 

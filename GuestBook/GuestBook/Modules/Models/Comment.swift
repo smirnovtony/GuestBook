@@ -13,6 +13,9 @@ class Comment: Mappable {
     var message: String = ""
     var answers: [Answer]?
     var user: User?
+    var id: Int?
+    var createdAt: String = ""
+    var answersCount: Int = 0
     required init?(map: Map) {
     }
 
@@ -20,9 +23,12 @@ class Comment: Mappable {
     }
 
     func mapping(map: Map) {
+        id <- map["id"]
         title <- map["title"]
         message <- map["message"]
         answers <- map["answers"]
         user <- map["user"]
+        createdAt <- map["created_at"]
+        answersCount <- map["answers_count"]
     }
 }

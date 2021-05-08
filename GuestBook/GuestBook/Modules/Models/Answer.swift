@@ -10,6 +10,9 @@ import ObjectMapper
 
 class Answer: Mappable {
     var message: String = ""
+    var id: Int?
+    var userId: Int = 0
+    var createdAt: String = ""
     required init?(map: Map) {
     }
 
@@ -18,6 +21,9 @@ class Answer: Mappable {
 
     func mapping(map: Map) {
         message <- map["message"]
+        id <- map["id"]
+        userId <- map["user_id"]
+        createdAt <- map["created_at"]
     }
 }
 

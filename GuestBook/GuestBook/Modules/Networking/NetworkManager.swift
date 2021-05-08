@@ -11,16 +11,12 @@ import ObjectMapper
 
 class NetworkManager {
 
+    //MARK: - Variables
+
     static let shared = NetworkManager()
 
     var user: [String: Any] = [:]
     var token: [String: Any] = [:]
-
-//    var dataDict: [String: [Any]] = [:]
-//    var dataArray: Any = Array<Any>()
-//    var linksDict: [String: Any] = [:]
-//    var links: Links?
-//    var metaDict: [String: Any] = [:]
 
     // mapping
     var dict: [String: Any] = [:]
@@ -30,6 +26,8 @@ class NetworkManager {
 
     var path: String { return EndPoints.baseURL + EndPoints.path }
 
+    //MARK: - Functions
+    
     func doRequestWithHeaders() -> HTTPHeaders {
         let headers: HTTPHeaders = [
             "Accept": "application/json"
@@ -51,10 +49,34 @@ class NetworkManager {
                     let responseDict = value as? [String: [String: Any]]
                     guard let result = responseDict?["user"] else { return }
                     self.user.updateValue(result, forKey: "user")
-//                    print("userrr      \(result)")
+                    print("userrr      \(result)")
                     guard let result = responseDict?["token"] else { return }
                     self.token.updateValue(result, forKey: "token")
-//                    print("tokennnnn      \(result)")
+                    print("tokennnnn      \(result)")
+                case .failure(let error):
+                    Swift.debugPrint(error)
+                    break
+                }
+            } else {
+                return
+            }
+        }
+    }
+    func register(withName name: String, email: String, password: String, passwordConfirm: String) {
+        var parameters = [String : Any]()
+        parameters["name"] = name
+        parameters["email"] = email
+        parameters["password"] = password
+        parameters["password_confirmation"] = passwordConfirm
+        guard let url = URL(string: self.path + "/auth/register") else { return }
+
+        AF.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: self.doRequestWithHeaders()).responseJSON { (response) in
+            guard response.error == nil else { return }
+            if response.data != nil {
+                switch response.result {
+                case .success(let value):
+                    self.login(withEmail: email, password: password)
+                    Swift.debugPrint(value)
                 case .failure(let error):
                     Swift.debugPrint(error)
                     break
@@ -134,8 +156,9 @@ class NetworkManager {
 
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.httpBody, headers: headers).responseJSON { (response) in
             if response.response?.statusCode == 200 {
-                let resultDict = response.value as! [String: Any]
-                let result = Mapper<Meta>().map(JSONObject: resultDict["meta"])
+                let resultDict = response.value as? [String: Any]
+//                let result = Mapper<Meta>().mapDictionary(JSONObject: resultDict["meta"])
+                let result = Mapper<Meta>().map(JSONObject: resultDict?["meta"])
                 self.meta = result
 //                print("NetworkManager   \(resultDict)")
             } else {
@@ -161,3 +184,4 @@ class NetworkManager {
     }
 
 }
+

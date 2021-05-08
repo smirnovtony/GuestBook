@@ -9,10 +9,10 @@ import Foundation
 import ObjectMapper
 
 class Links: Mappable {
-    var first: Int = 1
-    var next: Int?
-    var prev: Int?
-    var last: Int?
+    var first: String?
+    var next: String?
+    var prev: String?
+//    var last: String?
     required init?(map: Map) {
     }
 
@@ -22,7 +22,7 @@ class Links: Mappable {
         first <- map["first"]
         next <- map["next"]
         prev <- map["prev"]
-        last <- map["last"]
+//        last <- map["last"]
     }
 }
 //struct Links: Decodable {
