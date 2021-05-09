@@ -90,11 +90,11 @@ class NetworkManager {
             guard response.error == nil else { return }
             if response.data != nil {
                 switch response.result {
-                case .success(let value):
+                case .success:
                     self.login(withEmail: email, password: password)
-                //                    Swift.debugPrint(value)
-                case .failure(let error):
-                    //                    Swift.debugPrint(error)
+//                                    Swift.debugPrint(value)
+                case .failure:
+//                                        Swift.debugPrint(error)
                     break
                 }
             } else {
@@ -123,18 +123,19 @@ class NetworkManager {
             if response.response?.statusCode == 200 {
                 let resultDict = response.value as! [String: Any]
                 self.dict = resultDict
-                let result = Mapper<Comment>().mapArray(JSONObject: resultDict["data"])
-                self.comment = result!
+                let resultData = Mapper<Comment>().mapArray(JSONObject: resultDict["data"])
+                self.comment = resultData!
+                let resultMeta = Mapper<Meta>().map(JSONObject: resultDict["meta"])
+                self.meta = resultMeta
+                let resultLinks = Mapper<Links>().map(JSONObject: resultDict["links"])
+                self.links = resultLinks
 
             } else {
                 print("ERROR")
-
             }
         }
     }
 
-
-    
     func getCommentsNext(with page: String) {
         guard let url = URL(string: (self.path + "/posts?page=" + page)) else { return }
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserDefaults.standard.value(forKey: "tokenData") ?? getAccessToken())"]
@@ -154,35 +155,4 @@ class NetworkManager {
         }
     }
 
-    func getMeta() {
-        guard let url = URL(string: (self.path + "/posts")) else { return }
-        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserDefaults.standard.value(forKey: "tokenData") ?? getAccessToken())"]
-
-        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.httpBody, headers: headers).responseJSON { (response) in
-            if response.response?.statusCode == 200 {
-                let resultDict = response.value as? [String: Any]
-                let result = Mapper<Meta>().map(JSONObject: resultDict?["meta"])
-                self.meta = result
-            } else {
-                print("ERROR")
-            }
-        }
-    }
-
-    func getlinks() {
-        guard let url = URL(string: (self.path + "/posts")) else { return }
-        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserDefaults.standard.value(forKey: "tokenData") ?? getAccessToken())"]
-
-        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.httpBody, headers: headers).responseJSON { (response) in
-            if response.response?.statusCode == 200 {
-                let resultDict = response.value as? [String: Any]
-                let result = Mapper<Links>().map(JSONObject: resultDict?["links"])
-                self.links = result
-
-            } else {
-                print("ERROR")
-                
-            }
-        }
-    }
 }

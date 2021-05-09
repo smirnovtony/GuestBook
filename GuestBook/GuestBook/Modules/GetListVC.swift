@@ -57,7 +57,7 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             let alertController = UIAlertController(title: "No any answers!",
                                                     message: "",
                                                     preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .destructive)
+            let okAction = UIAlertAction(title: "OK", style: .default)
             self.present(alertController, animated: true)
             alertController.addAction(okAction)
         } else {

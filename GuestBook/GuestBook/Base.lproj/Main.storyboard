@@ -14,7 +14,7 @@
             <objects>
                 <viewController id="yYj-D8-84q" customClass="GetListVC" customModule="GuestBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6kt-yO-iIg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e1x-EX-JIA">
@@ -94,7 +94,7 @@
             <objects>
                 <viewController id="znA-MP-DDH" customClass="LoadingVC" customModule="GuestBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DkI-rW-alC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="gEm-CD-naA">
@@ -125,7 +125,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Abl-yD-5wB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3441" y="-295"/>
+            <point key="canvasLocation" x="-3472" y="-295"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="asT-nq-oVq">
@@ -260,7 +260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4181" y="-295"/>
+            <point key="canvasLocation" x="-4243" y="-295"/>
         </scene>
         <!--Registration-->
         <scene sceneID="uIT-ux-EOx">
@@ -422,10 +422,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FYZ-9U-5j1" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4539" y="419"/>
+            <point key="canvasLocation" x="-4243" y="451"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="jRg-A8-6iQ"/>
         <segue reference="l1y-zY-15H"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
