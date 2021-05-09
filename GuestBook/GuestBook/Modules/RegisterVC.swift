@@ -41,7 +41,7 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
     }
 
-//    //MARK: - Functions
+    //MARK: - Functions
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -72,7 +72,6 @@ class RegisterVC: UIViewController {
             {
                 NetworkManager.shared.register(withName: name, email: email, password: password, passwordConfirm: confirmPassword)
             }
-//            self.navigationController?.pushViewController(<#T##viewController: UIViewController##UIViewController#>, animated: <#T##Bool#>)
         }
     }
     //MARK: - LogInConditions
@@ -82,6 +81,8 @@ class RegisterVC: UIViewController {
             alert(title: "Error", message: "Fill in all the fields")
         } else if self.name == self.password {
             alert(title: "Error", message: "The password must not be the same as the name")
+        } else if self.password.count <= 8 {
+            alert(title: "Error", message: "Password must be more than 8 characters")
         } else if self.email == self.password {
             alert(title: "Error", message: "The password must not be the same as the email")
         } else if self.email.isEmpty, isValid(email) {

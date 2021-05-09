@@ -9,13 +9,15 @@ import Foundation
 import ObjectMapper
 
 class Comment: Mappable {
-    var title: String = ""
-    var message: String = ""
     var answers: [Answer]?
-    var user: User?
-    var id: Int?
-    var createdAt: String = ""
     var answersCount: Int = 0
+    var createdAt: String = ""
+    var id: Int?
+    var message: String = ""
+    var title: String = ""
+    var updatedAt: String = ""
+    var user: User?
+
     required init?(map: Map) {
     }
 
@@ -23,12 +25,13 @@ class Comment: Mappable {
     }
 
     func mapping(map: Map) {
-        id <- map["id"]
-        title <- map["title"]
-        message <- map["message"]
         answers <- map["answers"]
-        user <- map["user"]
-        createdAt <- map["created_at"]
         answersCount <- map["answers_count"]
+        createdAt <- map["created_at"]
+        id <- map["id"]
+        message <- map["message"]
+        title <- map["title"]
+        updatedAt <- map["updated_at"]
+        user <- map["user"]
     }
 }

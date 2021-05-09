@@ -23,7 +23,6 @@ class LoginVC: UIViewController {
             passwordField.text = "12345678"
         }
     }
-    @IBOutlet weak var loginButton: MyButton!
     @IBOutlet weak var registrationButton: MyButton!
 
     //MARK: - Variables
@@ -39,12 +38,6 @@ class LoginVC: UIViewController {
     //MARK: - Lifecycle
 
     override func viewDidLoad() {
-
-        if !NetworkManager.shared.token.isEmpty {
-            performSegue(withIdentifier: "LoadingVC", sender: self)
-        } else {
-            return
-        }
         super.viewDidLoad()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -75,44 +68,43 @@ class LoginVC: UIViewController {
 
     private func logInConditions() -> Bool {
         if self.email.isEmpty, self.password.isEmpty {
-            alert(title: "Error", message: "Fill in all the fields")
+            alertLogIn(title: "Error", message: "Fill in all the fields")
         } else {
             successfulCondition = true
-            alert(title: "Successful login", message: "")
+            alertLogIn(title: "Successful login", message: "")
         }
         return successfulCondition
     }
 
-    private func alert(title: String, message: String) {
+    private func alertLogIn(title: String, message: String) {
         let alertController = UIAlertController(title: title,
                                                 message: message,
                                                 preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "OK", style: .destructive)
-        self.present(alertController, animated: true)
+        let okAction = UIAlertAction(title: "OK", style: .default)
         alertController.addAction(okAction)
+        self.present(alertController, animated: true)
     }
 
     //MARK: - Actions
 
-    @IBAction func printuser(_ sender: Any) {
-        print(NetworkManager.shared.user)
-        print(NetworkManager.shared.token)
-    }
-
-
-    @IBAction func dataArray(_ sender: Any) {
-        NetworkManager.shared.getComments()
-//        NetworkManager.shared.getMeta()
-//        NetworkManager.shared.getlinks()
-    }
+//    @IBAction func printuser(_ sender: Any) {
+//        print(NetworkManager.shared.user)
+//        print(NetworkManager.shared.token)
+//    }
+//
+//
+//    @IBAction func dataArray(_ sender: Any) { // это кнопка для подгрузки данных
+////        NetworkManager.shared.getComments()
+////        NetworkManager.shared.getMeta()
+////        NetworkManager.shared.getlinks()
+//    }
 
     @IBAction func loginButtonTapped(_ sender: Any) {
         if let email = self.emailField.text,
            let password = self.passwordField.text {
             NetworkManager.shared.login(withEmail: email, password: password)
-
             if !NetworkManager.shared.token.isEmpty {
-                alert(title: "Error!", message: "Authorization Failed")
+                alertLogIn(title: "Error!", message: "Authorization Failed")
             } else {
                 self.performSegue(withIdentifier: "LoadingVC", sender: Any?.self)
             }

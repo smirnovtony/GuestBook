@@ -9,11 +9,14 @@ import UIKit
 
 class AnswersTableViewCell: UITableViewCell {
 
-
+    //MARK: - Outlets
+    
     @IBOutlet weak var userIdLabel: MyLabel!
     @IBOutlet weak var messageLabel: MyLabel!
     @IBOutlet weak var createAtLabel: UILabel!
 
+    //MARK: - CellFunctions
+    
     func setAnswerCell(model: Answer) {
         self.userIdLabel.text = String(model.userId)
         self.messageLabel.text = model.message
@@ -22,13 +25,10 @@ class AnswersTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
 }

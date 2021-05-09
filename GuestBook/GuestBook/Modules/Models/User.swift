@@ -9,30 +9,30 @@ import Foundation
 import ObjectMapper
 
 class User: Mappable {
-    var user: String = ""
-    var name: String = ""
     var avatar: String = ""
+    var createdAt: String?
+    var email: String = ""
     var id: Int = 0
     var isAdmin: Int?
-    var email: String = ""
-    var createdAt: String?
+    var name: String = ""
     var updatedAt: String?
-    var accessToken: String?
-    var expiresAt: String?
+//    var user: String = ""
+//    var accessToken: String?
+//    var expiresAt: String?
 
     required init?(map: Map) {
     }
 
     func mapping(map: Map) {
-        user <- map["user"]
-        name <- map["name"]
         avatar <- map["avatar"]
+        createdAt <- map["created_at"]
+        email <- map["email"]
         id <- map["id"]
         isAdmin <- map["is_admin"]
-        email <- map["email"]
-        createdAt <- map["created_at"]
+        name <- map["name"]
         updatedAt <- map["updated_at"]
-        accessToken <- map["access_token"]
-        expiresAt <- map["expires_at"]
+//        user <- map["user"]
+//        accessToken <- map["access_token"]
+//        expiresAt <- map["expires_at"]
     }
 }

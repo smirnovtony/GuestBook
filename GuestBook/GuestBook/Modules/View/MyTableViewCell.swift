@@ -17,7 +17,7 @@ class MyTableViewCell: UITableViewCell {
     @IBOutlet weak var messageLabel: MyLabel!
     @IBOutlet weak var createAtLable: UILabel!
 
-    //MARK: - Variables
+    //MARK: - CellFunctions
 
     func setCell(model: Comment) {
         guard let avatarImage = model.user?.avatar else { return }
@@ -39,7 +39,6 @@ class MyTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
 }
 

@@ -9,10 +9,12 @@ import Foundation
 import ObjectMapper
 
 class Answer: Mappable {
-    var message: String = ""
-    var id: Int?
-    var userId: Int = 0
     var createdAt: String = ""
+    var id: Int?
+    var message: String = ""
+    var postId: String = ""
+    var updatedAt: String = ""
+    var userId: Int = 0
     required init?(map: Map) {
     }
 
@@ -20,31 +22,15 @@ class Answer: Mappable {
     }
 
     func mapping(map: Map) {
-        message <- map["message"]
-        id <- map["id"]
-        userId <- map["user_id"]
         createdAt <- map["created_at"]
+        id <- map["id"]
+        message <- map["message"]
+        postId <- map["post_id"]
+        updatedAt <- map["updated_at"]
+        userId <- map["user_id"]
+
     }
 }
-
-
-//struct Answer: Decodable {
-//    let id: Int
-//    let postId: Int
-//    let userId: Int
-//    let message: String
-//    let createdAt: String
-//    let updatedAt: String
-//
-//    enum CodingKeys: String, CodingKey {
-//        case id
-//        case postId = "post_id"
-//        case userId = "user_id"
-//        case message
-//        case createdAt = "created_at"
-//        case updatedAt = "updated_at"
-//    }
-//}
 
 
 

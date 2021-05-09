@@ -9,19 +9,14 @@ import UIKit
 
 class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
-
-
     //MARK: - Outlets
-
     @IBOutlet weak var answerTableView: UITableView!
 
     //MARK: - Variables
 
-    var comments: [Comment] = NetworkManager.shared.comment
+    private let cellReuseIdentifier = "MyCell"
 
-    let cellReuseIdentifier = "MyCell"
-
-    private lazy var filteredAnswers: [Comment] = self.comments {
+    private lazy var comments: [Comment] = NetworkManager.shared.comment {
         didSet {
             self.answerTableView.reloadData()
         }
@@ -29,10 +24,8 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var selectedMessageId: [Answer]?
 
-    var limit = NetworkManager.shared.meta?.perPage
-    let totalEnteries = NetworkManager.shared.meta?.total
-    var totalPage = NetworkManager.shared.meta?.lastPage
-    var currentPage = 1
+    private let totalEnteries = NetworkManager.shared.meta?.total
+    private var currentPage = 1
 
     //MARK: - Lifecycle
 
@@ -41,7 +34,6 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.answerTableView.dataSource = self
         self.answerTableView.delegate = self
         self.answerTableView.register(UINib(nibName: "MyTableViewCell", bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-
         self.navigationItem.setHidesBackButton(true, animated:true)
         self.loading()
     }
@@ -49,18 +41,19 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //MARK: - TableView
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.filteredAnswers.count
+        return self.comments.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier,
                                                  for: indexPath) as? MyTableViewCell ?? MyTableViewCell()
 
-            cell.setCell(model: self.filteredAnswers[indexPath.row])
+            cell.setCell(model: self.comments[indexPath.row])
         return cell
     }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if filteredAnswers[indexPath.row].answersCount == 0 {
+        if comments[indexPath.row].answersCount == 0 {
             let alertController = UIAlertController(title: "No any answers!",
                                                     message: "",
                                                     preferredStyle: .alert)
@@ -68,56 +61,51 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
             self.present(alertController, animated: true)
             alertController.addAction(okAction)
         } else {
-        self.selectedMessageId = filteredAnswers[indexPath.row].answers
+        self.selectedMessageId = comments[indexPath.row].answers
         self.performSegue(withIdentifier: "ShowAnswers", sender: selectedMessageId)
         }
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         guard segue.identifier == "ShowAnswers",
               let model = sender as? [Answer],
               let vc =   segue.destination as? AnswersVC else { return }
-        vc.selectedCellData = model
+        vc.answers = model
     }
+    
     private func loading() {
-        if self.filteredAnswers.count == 0 {
+        if self.comments.count == 0 {
             self.navigationController?.popViewController(animated: false)
         }
     }
 
     private func refreshData(withPage: String) {
-        self.filteredAnswers.removeAll()
+        self.comments.removeAll()
         NetworkManager.shared.getCommentsNext(with: withPage)
-        self.filteredAnswers.append(contentsOf: NetworkManager.shared.comment)
-        print(NetworkManager.shared.comment.count)
+        self.comments.append(contentsOf: NetworkManager.shared.comment)
+        self.perform(#selector(loadTable), with: nil, afterDelay: 1.5)
     }
 
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        guard totalEnteries != nil else { return }
-        guard let totalPage = totalPage else { return }
-        guard let totalPage1 = totalPage else { return }
-        if currentPage < totalPage1 && indexPath.row == filteredAnswers.count - 1 {
+        guard let total = totalEnteries else { return }
+        if  indexPath.row == comments.count - 1, comments.count < total, currentPage == NetworkManager.shared.meta?.currentPage {
             currentPage += 1
             refreshData(withPage: String(currentPage))
-
         }
     }
-//    @objc func loadTable() {
-//        self.answerTableView.reloadData()
-//    }
+
+    @objc func loadTable() {
+        self.answerTableView.reloadData()
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 
     //MARK: - Actions
 
-    @IBAction func getlist(_ sender: Any) {
-        NetworkManager.shared.getPosts()
-
-    }
     @IBAction func logOutButtonTapped(_ sender: Any) {
-        // сброс логина и пароля
-
+        UserDefaults.standard.set(nil, forKey: "tokenData")
+        self.performSegue(withIdentifier: "LogOutButton", sender: self)
     }
 }
-

@@ -12,7 +12,7 @@ class Links: Mappable {
     var first: String?
     var next: String?
     var prev: String?
-//    var last: String?
+    var last: String?
     required init?(map: Map) {
     }
 
@@ -22,15 +22,9 @@ class Links: Mappable {
         first <- map["first"]
         next <- map["next"]
         prev <- map["prev"]
-//        last <- map["last"]
+        last <- map["last"]
     }
 }
-//struct Links: Decodable {
-//    let first: String?
-//    let next: String?
-//    let prev: String?
-//    let last: String?
-//}
 
 
 
