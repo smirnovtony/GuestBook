@@ -140,12 +140,12 @@ class NetworkManager {
 
         AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.httpBody, headers: headers).responseJSON { (response) in
             if response.response?.statusCode == 200 {
-                let resultDict = response.value as! [String: Any]
-                self.dict = resultDict
-                let result = Mapper<Comment>().mapArray(JSONObject: resultDict["data"])
+                let resultDict = response.value as? [String: Any]
+                self.dict = resultDict!
+                let result = Mapper<Comment>().mapArray(JSONObject: resultDict?["data"])
                 self.loadedComments = result!
                 self.comment.append(contentsOf: self.loadedComments)
-                let resultM = Mapper<Meta>().map(JSONObject: resultDict["meta"])
+                let resultM = Mapper<Meta>().map(JSONObject: resultDict?["meta"])
                 self.meta = resultM
             } else {
                 print("ERROR")

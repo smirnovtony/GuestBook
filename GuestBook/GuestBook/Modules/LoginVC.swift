@@ -91,7 +91,7 @@ class LoginVC: UIViewController {
         if let email = self.emailField.text,
            let password = self.passwordField.text {
             NetworkManager.shared.login(withEmail: email, password: password)
-            if !NetworkManager.shared.token.isEmpty {
+            if NetworkManager.shared.token.isEmpty {
                 alertLogIn(title: "Error!", message: "Authorization Failed")
             } else {
                 self.performSegue(withIdentifier: "LoadingVC", sender: Any?.self)
