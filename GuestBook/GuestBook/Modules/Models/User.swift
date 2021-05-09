@@ -16,9 +16,6 @@ class User: Mappable {
     var isAdmin: Int?
     var name: String = ""
     var updatedAt: String?
-//    var user: String = ""
-//    var accessToken: String?
-//    var expiresAt: String?
 
     required init?(map: Map) {
     }
@@ -31,8 +28,5 @@ class User: Mappable {
         isAdmin <- map["is_admin"]
         name <- map["name"]
         updatedAt <- map["updated_at"]
-//        user <- map["user"]
-//        accessToken <- map["access_token"]
-//        expiresAt <- map["expires_at"]
     }
 }

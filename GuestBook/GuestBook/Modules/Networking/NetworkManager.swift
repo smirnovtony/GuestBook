@@ -92,9 +92,7 @@ class NetworkManager {
                 switch response.result {
                 case .success:
                     self.login(withEmail: email, password: password)
-//                                    Swift.debugPrint(value)
                 case .failure:
-//                                        Swift.debugPrint(error)
                     break
                 }
             } else {
@@ -154,5 +152,4 @@ class NetworkManager {
             }
         }
     }
-
 }

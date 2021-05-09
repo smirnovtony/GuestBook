@@ -87,18 +87,6 @@ class LoginVC: UIViewController {
 
     //MARK: - Actions
 
-//    @IBAction func printuser(_ sender: Any) {
-//        print(NetworkManager.shared.user)
-//        print(NetworkManager.shared.token)
-//    }
-//
-//
-//    @IBAction func dataArray(_ sender: Any) { // это кнопка для подгрузки данных
-////        NetworkManager.shared.getComments()
-////        NetworkManager.shared.getMeta()
-////        NetworkManager.shared.getlinks()
-//    }
-
     @IBAction func loginButtonTapped(_ sender: Any) {
         if let email = self.emailField.text,
            let password = self.passwordField.text {
@@ -111,7 +99,6 @@ class LoginVC: UIViewController {
 
         }
     }
-
 }
 
 

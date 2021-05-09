@@ -13,5 +13,3 @@ struct EndPoints {
     static let baseURL = "https://guest-book.naveksoft.com"
     static let path = "/api/v1"
 }
-
-
