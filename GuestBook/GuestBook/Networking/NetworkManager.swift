@@ -57,7 +57,7 @@ class NetworkManager {
         parameters["password"] = password
         guard let url = URL(string: self.path + "/auth/login") else { return }
 
-        AF.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: self.doRequestWithHeaders()).responseJSON { (response) in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: self.doRequestWithHeaders()).responseJSON { (response) in
             guard response.error == nil else { return }
             if response.data != nil {
                 switch response.result {
@@ -86,7 +86,7 @@ class NetworkManager {
         parameters["password_confirmation"] = passwordConfirm
         guard let url = URL(string: self.path + "/auth/register") else { return }
 
-        AF.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: self.doRequestWithHeaders()).responseJSON { (response) in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: self.doRequestWithHeaders()).responseJSON { (response) in
             guard response.error == nil else { return }
             if response.data != nil {
                 switch response.result {
@@ -117,7 +117,7 @@ class NetworkManager {
         guard let url = URL(string: (self.path + "/posts")) else { return }
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserDefaults.standard.value(forKey: "tokenData") ?? getAccessToken())"]
 
-        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.httpBody, headers: headers).responseJSON { (response) in
+        Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.httpBody, headers: headers).responseJSON { (response) in
             if response.response?.statusCode == 200 {
                 let resultDict = response.value as! [String: Any]
                 self.dict = resultDict
@@ -137,7 +137,7 @@ class NetworkManager {
         guard let url = URL(string: (self.path + "/posts?page=" + page)) else { return }
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserDefaults.standard.value(forKey: "tokenData") ?? getAccessToken())"]
 
-        AF.request(url, method: .get, parameters: nil, encoding: URLEncoding.httpBody, headers: headers).responseJSON { (response) in
+        Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.httpBody, headers: headers).responseJSON { (response) in
             if response.response?.statusCode == 200 {
                 let resultDict = response.value as? [String: Any]
                 self.dict = resultDict!

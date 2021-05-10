@@ -3,7 +3,7 @@
 
 target 'GuestBook' do
 
-pod 'Alamofire', '= 5.0.0-rc.2'
+pod 'Alamofire', '~> 4.0'
 pod 'AlamofireObjectMapper'
 pod 'AlamofireMapper'
 
