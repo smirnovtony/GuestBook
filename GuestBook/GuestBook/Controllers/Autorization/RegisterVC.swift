@@ -33,6 +33,9 @@ class RegisterVC: UIViewController {
     private var password: String {
         self.passwordField.text ?? ""
     }
+    private var confirmPassword: String {
+        self.confirmPasswordField.text ?? ""
+    }
     private var successfulCondition: Bool = false
 
     //MARK: - Lifecycle
@@ -65,28 +68,33 @@ class RegisterVC: UIViewController {
 
     @IBAction func registerButtonTapped(_ sender: Any?) {
         if regFieldsConditions() {
-            if let name = self.nameField.text,
-               let email = self.emailField.text,
-               let password = self.passwordField.text,
-               let confirmPassword = self.confirmPasswordField.text
-            {
-                NetworkManager.shared.register(withName: name, email: email, password: password, passwordConfirm: confirmPassword)
+            NetworkManager.shared.register(withName: name, email: email, password: password, passwordConfirm: confirmPassword)
+        } else {
+            self.alert(title: "Error!", message: "Something is wrong!")
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            if NetworkManager.shared.token.isEmpty {
+                self.alert(title: "Error!", message: "Authorization Failed")
+            } else {
+                self.performSegue(withIdentifier: "RegisterSuccessful", sender: Any?.self)
             }
         }
     }
     //MARK: - LogInConditions
 
     private func regFieldsConditions() -> Bool {
-        if self.name.isEmpty, self.email.isEmpty, self.password.isEmpty {
-            alert(title: "Error", message: "Fill in all the fields")
+        if self.name.isEmpty, self.email.isEmpty, self.password.isEmpty, self.confirmPassword.isEmpty {
+            alert(title: "Error", message: "Fill in all the fields!")
         } else if self.name == self.password {
-            alert(title: "Error", message: "The password must not be the same as the name")
-        } else if self.password.count <= 8 {
-            alert(title: "Error", message: "Password must be more than 8 characters")
+            alert(title: "Error", message: "The password must not be the same as the name!")
+        } else if self.password.count < 8 {
+            alert(title: "Error", message: "Password must be more than 8 characters!")
         } else if self.email == self.password {
-            alert(title: "Error", message: "The password must not be the same as the email")
-        } else if self.email.isEmpty, isValid(email) {
-            alert(title: "Error", message: "Сheck the entered email")
+            alert(title: "Error", message: "The password must not be the same as the email!")
+        } else if !isValid(email) {
+            alert(title: "Error", message: "Сheck the entered email!")
+        } else if self.password != self.confirmPassword {
+            alert(title: "Error", message: "Password and password confirmation must be equal!")
         } else {
             successfulCondition = true
             alert(title: "Successful registration", message: "")

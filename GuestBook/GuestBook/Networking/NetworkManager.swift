@@ -24,11 +24,11 @@ class NetworkManager {
     var meta: Meta?
     var links: Links?
 
-    lazy var userLogged: String = self.loadTestValue()
-
     var path: String { return EndPoints.baseURL + EndPoints.path }
 
-    //MARK: - Struct
+    lazy var userLogged: String = self.loadTestValue()
+
+    //MARK: - Structs
 
     private struct Keys {
         static let tokenData = "tokenData"
@@ -127,7 +127,6 @@ class NetworkManager {
                 self.meta = resultMeta
                 let resultLinks = Mapper<Links>().map(JSONObject: resultDict["links"])
                 self.links = resultLinks
-
             } else {
                 print("ERROR")
             }

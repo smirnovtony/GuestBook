@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7270A1C28875D7B2D5827CAF /* libPods-GuestBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F0D97AADE6FCFED3B97CD7F /* libPods-GuestBook.a */; };
 		EA13F74826409C6600D88722 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F74726409C6600D88722 /* LoginVC.swift */; };
 		EA13F74A2640A40F00D88722 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F7492640A40F00D88722 /* RegisterVC.swift */; };
 		EA13F74D2641142500D88722 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F74C2641142500D88722 /* MyTextField.swift */; };
@@ -37,7 +36,6 @@
 
 /* Begin PBXFileReference section */
 		6C3D22426D16FBC136B3EB88 /* Pods-GuestBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuestBook.release.xcconfig"; path = "Target Support Files/Pods-GuestBook/Pods-GuestBook.release.xcconfig"; sourceTree = "<group>"; };
-		6F0D97AADE6FCFED3B97CD7F /* libPods-GuestBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GuestBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B82AB7ADA676CAE699EAF42 /* Pods-GuestBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuestBook.debug.xcconfig"; path = "Target Support Files/Pods-GuestBook/Pods-GuestBook.debug.xcconfig"; sourceTree = "<group>"; };
 		EA13F74726409C6600D88722 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		EA13F7492640A40F00D88722 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
@@ -73,21 +71,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7270A1C28875D7B2D5827CAF /* libPods-GuestBook.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7C1354A2D318651C41A23406 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6F0D97AADE6FCFED3B97CD7F /* libPods-GuestBook.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		E2F4CA1E6DB8A139529041E7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,14 +89,6 @@
 		EA13F74B2640BCC200D88722 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				EA13F7582641B81700D88722 /* Networking */,
-				EA13F74726409C6600D88722 /* LoginVC.swift */,
-				EA13F75026412D6000D88722 /* LoadingVC.swift */,
-				EA13F7492640A40F00D88722 /* RegisterVC.swift */,
-				EA13F7622642747000D88722 /* GetListVC.swift */,
-				EAC6D1DF26451FFD0038A0BC /* AnswersVC.swift */,
-				EA13F7762642EB8E00D88722 /* View */,
-				EA13F75D2641D59D00D88722 /* Models */,
 				EA13F76026426D3C00D88722 /* MyLabel.swift */,
 				EA13F74C2641142500D88722 /* MyTextField.swift */,
 				EA13F74E264124FC00D88722 /* MyButton.swift */,
@@ -155,13 +136,40 @@
 			path = Xibs;
 			sourceTree = "<group>";
 		};
+		EA5219D4264914AF00F8D1FC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				EA58EAF526407F19003933BF /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		EA5219D52649150700F8D1FC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				EA5219D6264921C200F8D1FC /* Autorization */,
+				EA13F75026412D6000D88722 /* LoadingVC.swift */,
+				EA13F7622642747000D88722 /* GetListVC.swift */,
+				EAC6D1DF26451FFD0038A0BC /* AnswersVC.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		EA5219D6264921C200F8D1FC /* Autorization */ = {
+			isa = PBXGroup;
+			children = (
+				EA13F74726409C6600D88722 /* LoginVC.swift */,
+				EA13F7492640A40F00D88722 /* RegisterVC.swift */,
+			);
+			path = Autorization;
+			sourceTree = "<group>";
+		};
 		EA58EAE026407F18003933BF = {
 			isa = PBXGroup;
 			children = (
 				EA58EAEB26407F18003933BF /* GuestBook */,
 				EA58EAEA26407F18003933BF /* Products */,
 				E2F4CA1E6DB8A139529041E7 /* Pods */,
-				7C1354A2D318651C41A23406 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -176,12 +184,16 @@
 		EA58EAEB26407F18003933BF /* GuestBook */ = {
 			isa = PBXGroup;
 			children = (
-				EA13F74B2640BCC200D88722 /* Modules */,
+				EA5219D52649150700F8D1FC /* Controllers */,
 				EAC6D1ED264652690038A0BC /* Extensions */,
+				EA13F75D2641D59D00D88722 /* Models */,
+				EA13F74B2640BCC200D88722 /* Modules */,
+				EA13F7582641B81700D88722 /* Networking */,
+				EA5219D4264914AF00F8D1FC /* Resources */,
+				EA13F7762642EB8E00D88722 /* View */,
 				EA58EAEC26407F18003933BF /* AppDelegate.swift */,
 				EA58EAEE26407F18003933BF /* SceneDelegate.swift */,
 				EA58EAF226407F18003933BF /* Main.storyboard */,
-				EA58EAF526407F19003933BF /* Assets.xcassets */,
 				EA58EAFA26407F19003933BF /* Info.plist */,
 			);
 			path = GuestBook;

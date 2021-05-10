@@ -12,28 +12,10 @@ class LoginVC: UIViewController {
     //MARK: - Outlets
 
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var emailField: MyTextField!{
-        didSet {
-            emailField.text = "test@gmail.com"
-        }
-    }
+    @IBOutlet weak var emailField: MyTextField!
     @IBOutlet weak var passwordLabel: UILabel!
-    @IBOutlet weak var passwordField: MyTextField! {
-        didSet {
-            passwordField.text = "12345678"
-        }
-    }
+    @IBOutlet weak var passwordField: MyTextField!
     @IBOutlet weak var registrationButton: MyButton!
-
-    //MARK: - Variables
-
-    private var email: String {
-        self.emailField.text ?? ""
-    }
-    private var password: String {
-        self.passwordField.text ?? ""
-    }
-    private var successfulCondition: Bool = false
 
     //MARK: - Lifecycle
 
@@ -66,16 +48,6 @@ class LoginVC: UIViewController {
     }
     //MARK: - LogInConditions
 
-    private func logInConditions() -> Bool {
-        if self.email.isEmpty, self.password.isEmpty {
-            alertLogIn(title: "Error", message: "Fill in all the fields")
-        } else {
-            successfulCondition = true
-            alertLogIn(title: "Successful login", message: "")
-        }
-        return successfulCondition
-    }
-
     private func alertLogIn(title: String, message: String) {
         let alertController = UIAlertController(title: title,
                                                 message: message,
@@ -91,14 +63,15 @@ class LoginVC: UIViewController {
         if let email = self.emailField.text,
            let password = self.passwordField.text {
             NetworkManager.shared.login(withEmail: email, password: password)
+        } else {
+            self.alertLogIn(title: "Error!", message: "Fill in all fields!")
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             if NetworkManager.shared.token.isEmpty {
-                alertLogIn(title: "Error!", message: "Authorization Failed")
+                self.alertLogIn(title: "Error!", message: "Authorization Failed")
             } else {
                 self.performSegue(withIdentifier: "LoadingVC", sender: Any?.self)
             }
-
         }
     }
 }
-
-
