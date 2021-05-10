@@ -37,6 +37,7 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.answerTableView.register(UINib(nibName: "MyTableViewCell", bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
         self.navigationItem.setHidesBackButton(true, animated:true)
         self.loading()
+        self.answerTableView.backgroundColor = .white
     }
     
     //MARK: - TableView

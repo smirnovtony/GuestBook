@@ -26,6 +26,7 @@ class AnswersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         self.answerTabelView.delegate = self
         self.answerTabelView.dataSource = self
         self.answerTabelView.register(UINib(nibName: "AnswersTableViewCell", bundle: nil), forCellReuseIdentifier: cellReuseIdentifierAns)
+        self.answerTabelView.backgroundColor = .white
     }
     
     //MARK: - TableView
