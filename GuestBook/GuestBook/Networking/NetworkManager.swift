@@ -92,8 +92,8 @@ class NetworkManager {
                 switch response.result {
                 case .success:
                     self.login(withEmail: email, password: password)
-                case .failure:
-                    break
+                case .failure(let error):
+                    Swift.debugPrint(error)
                 }
             } else {
                 return

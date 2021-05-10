@@ -268,7 +268,7 @@
             <objects>
                 <viewController id="D9D-Rd-JXM" customClass="RegisterVC" customModule="GuestBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ScX-9L-rqM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photography" translatesAutoresizingMaskIntoConstraints="NO" id="X9J-Hv-eD8">

@@ -8,7 +8,7 @@
 import UIKit
 
 class RegisterVC: UIViewController {
-
+    
     //MARK: - Outlets
     
     @IBOutlet weak var choosePhotoImage: UIImageView! {
@@ -23,7 +23,7 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var confirmPasswordField: MyTextField!
     
     //MARK: - Variables
-
+    
     private var name: String {
         self.nameField.text ?? ""
     }
@@ -37,27 +37,27 @@ class RegisterVC: UIViewController {
         self.confirmPasswordField.text ?? ""
     }
     private var successfulCondition: Bool = false
-
+    
     //MARK: - Lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     //MARK: - Functions
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if touches.first != nil {
             view.endEditing(true)
         }
     }
-
+    
     //MARK: - Actions
-
+    
     @IBAction func chooseYourPhotoButtonTapped(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.sourceType = .photoLibrary
@@ -65,7 +65,7 @@ class RegisterVC: UIViewController {
         vc.allowsEditing = true
         present(vc, animated: true, completion: nil)
     }
-
+    
     @IBAction func registerButtonTapped(_ sender: Any?) {
         if regFieldsConditions() {
             NetworkManager.shared.register(withName: name, email: email, password: password, passwordConfirm: confirmPassword)
@@ -81,7 +81,7 @@ class RegisterVC: UIViewController {
         }
     }
     //MARK: - LogInConditions
-
+    
     private func regFieldsConditions() -> Bool {
         if self.name.isEmpty, self.email.isEmpty, self.password.isEmpty, self.confirmPassword.isEmpty {
             alert(title: "Error", message: "Fill in all the fields!")
@@ -101,7 +101,7 @@ class RegisterVC: UIViewController {
         }
         return successfulCondition
     }
-
+    
     private func alert(title: String, message: String) {
         let alertController = UIAlertController(title: title,
                                                 message: message,
@@ -110,10 +110,10 @@ class RegisterVC: UIViewController {
         self.present(alertController, animated: true)
         alertController.addAction(okAction)
     }
-
+    
     private func isValid(_ email: String) -> Bool {
         let emailRegEx = "(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}"+"~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\"+"x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-"+"z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5"+"]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-"+"9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21"+"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
-
+        
         let emailTest = NSPredicate(format: "SELF MATCHES[c] %@", emailRegEx)
         return emailTest.evaluate(with: email)
     }

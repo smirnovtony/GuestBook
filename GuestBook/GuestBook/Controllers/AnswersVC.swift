@@ -31,20 +31,12 @@ class AnswersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     //MARK: - TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if answers != nil {
-            return answers!.count // FORCE UNWRAP!!!!
-        } else {
-            return 0
-        }
+        return answers!.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifierAns,
                                                  for: indexPath) as? AnswersTableViewCell ?? AnswersTableViewCell()
-        if answers != nil {
-            cell.setAnswerCell(model: self.answers![indexPath.row]) // FORCE UNWRAP!!!!
-            return cell
-        }
+        cell.setAnswerCell(model: self.answers![indexPath.row])
         return cell
     }
-    
 }
