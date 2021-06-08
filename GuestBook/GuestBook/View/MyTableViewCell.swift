@@ -11,11 +11,14 @@ class MyTableViewCell: UITableViewCell {
 
     //MARK: - Outlets
 
+
     @IBOutlet weak var nameLabel: MyLabel!
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var titleLabel: MyLabel!
     @IBOutlet weak var messageLabel: MyLabel!
+    @IBOutlet weak var countLabel: UILabel!
     @IBOutlet weak var createAtLable: UILabel!
+
 
     //MARK: - CellFunctions
 
@@ -28,6 +31,7 @@ class MyTableViewCell: UITableViewCell {
         self.nameLabel.text = model.user?.name
         self.titleLabel.text = model.title
         self.messageLabel.text = model.message
+        self.countLabel.text = model.answersCount.description
         self.createAtLable.text = model.createdAt.toDate().toString
 
     }

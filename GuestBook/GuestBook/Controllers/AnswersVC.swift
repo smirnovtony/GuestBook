@@ -17,7 +17,7 @@ class AnswersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     private let cellReuseIdentifierAns = "MyAnsCell"
     
-    var answers: [Answer]?
+    var answers: [Answer] = []
     
     //MARK: - Lifecycle
     
@@ -32,12 +32,13 @@ class AnswersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     //MARK: - TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return answers!.count
+        print(answers.count)
+        return answers.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifierAns,
                                                  for: indexPath) as? AnswersTableViewCell ?? AnswersTableViewCell()
-        cell.setAnswerCell(model: self.answers![indexPath.row])
+        cell.setAnswerCell(model: self.answers[indexPath.row])
         return cell
     }
 }

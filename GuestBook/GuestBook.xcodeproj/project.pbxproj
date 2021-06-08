@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		156678865483BCA81711E2DC /* libPods-GuestBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50361AC87CCD1AC27BC4546A /* libPods-GuestBook.a */; };
+		3278EB60266F6B310023F18E /* LabelDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278EB5F266F6B310023F18E /* LabelDesignable.swift */; };
 		EA13F74826409C6600D88722 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F74726409C6600D88722 /* LoginVC.swift */; };
 		EA13F74A2640A40F00D88722 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F7492640A40F00D88722 /* RegisterVC.swift */; };
 		EA13F74D2641142500D88722 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F74C2641142500D88722 /* MyTextField.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3278EB5F266F6B310023F18E /* LabelDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelDesignable.swift; sourceTree = "<group>"; };
+		50361AC87CCD1AC27BC4546A /* libPods-GuestBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GuestBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3D22426D16FBC136B3EB88 /* Pods-GuestBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuestBook.release.xcconfig"; path = "Target Support Files/Pods-GuestBook/Pods-GuestBook.release.xcconfig"; sourceTree = "<group>"; };
 		9B82AB7ADA676CAE699EAF42 /* Pods-GuestBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuestBook.debug.xcconfig"; path = "Target Support Files/Pods-GuestBook/Pods-GuestBook.debug.xcconfig"; sourceTree = "<group>"; };
 		EA13F74726409C6600D88722 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -71,12 +75,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				156678865483BCA81711E2DC /* libPods-GuestBook.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3278EB5E266F501C0023F18E /* Websockets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Websockets;
+			sourceTree = "<group>";
+		};
+		787B7710CA4221A4147B0312 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				50361AC87CCD1AC27BC4546A /* libPods-GuestBook.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E2F4CA1E6DB8A139529041E7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -92,6 +112,7 @@
 				EA13F76026426D3C00D88722 /* MyLabel.swift */,
 				EA13F74C2641142500D88722 /* MyTextField.swift */,
 				EA13F74E264124FC00D88722 /* MyButton.swift */,
+				3278EB5F266F6B310023F18E /* LabelDesignable.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -99,6 +120,7 @@
 		EA13F7582641B81700D88722 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				3278EB5E266F501C0023F18E /* Websockets */,
 				EA13F7592641B94500D88722 /* EndPoints.swift */,
 				EA13F75B2641CC0A00D88722 /* NetworkManager.swift */,
 			);
@@ -170,6 +192,7 @@
 				EA58EAEB26407F18003933BF /* GuestBook */,
 				EA58EAEA26407F18003933BF /* Products */,
 				E2F4CA1E6DB8A139529041E7 /* Pods */,
+				787B7710CA4221A4147B0312 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -317,6 +340,7 @@
 				EA13F77C2644270600D88722 /* Links.swift in Sources */,
 				EA13F75C2641CC0A00D88722 /* NetworkManager.swift in Sources */,
 				EA13F77E26442A0C00D88722 /* Meta.swift in Sources */,
+				3278EB60266F6B310023F18E /* LabelDesignable.swift in Sources */,
 				EA13F7742642D2B300D88722 /* MyTableViewCell.swift in Sources */,
 				EA13F74D2641142500D88722 /* MyTextField.swift in Sources */,
 				EA13F76126426D3C00D88722 /* MyLabel.swift in Sources */,
