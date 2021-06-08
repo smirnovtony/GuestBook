@@ -146,9 +146,30 @@ class NetworkManager {
                 self.comment.append(contentsOf: self.loadedComments)
                 let resultM = Mapper<Meta>().map(JSONObject: resultDict?["meta"])
                 self.meta = resultM
+                print(response)
             } else {
                 print("ERROR")
             }
         }
     }
+    func addComment() {
+        guard let url = URL(string: (self.path + "/posts")) else { return }
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserDefaults.standard.value(forKey: "tokenData") ?? getAccessToken())"]
+
+        Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.httpBody, headers: headers).responseJSON { (response) in
+            if response.response?.statusCode == 200 {
+                let resultDict = response.value as! [String: Any]
+                self.dict = resultDict
+                let resultData = Mapper<Comment>().mapArray(JSONObject: resultDict["data"])
+                self.comment = resultData!
+                let resultMeta = Mapper<Meta>().map(JSONObject: resultDict["meta"])
+                self.meta = resultMeta
+                let resultLinks = Mapper<Links>().map(JSONObject: resultDict["links"])
+                self.links = resultLinks
+            } else {
+                print("ERROR")
+            }
+        }
+    }
+
 }

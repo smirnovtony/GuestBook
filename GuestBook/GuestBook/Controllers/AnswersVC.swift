@@ -12,6 +12,7 @@ class AnswersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     //MARK: - Outlets
     
     @IBOutlet weak var answerTabelView: UITableView!
+    @IBOutlet weak var addAnswerButton: UIBarButtonItem!
     
     //MARK: - Variables
     
@@ -23,10 +24,13 @@ class AnswersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        if NetworkManager.shared.user {
+//        }
         self.answerTabelView.delegate = self
         self.answerTabelView.dataSource = self
         self.answerTabelView.register(UINib(nibName: "AnswersTableViewCell", bundle: nil), forCellReuseIdentifier: cellReuseIdentifierAns)
         self.answerTabelView.backgroundColor = .white
+        
     }
     
     //MARK: - TableView

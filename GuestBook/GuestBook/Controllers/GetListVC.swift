@@ -55,14 +55,7 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if comments[indexPath.row].answersCount == 0 {
-            let alertController = UIAlertController(title: "No any answers!",
-                                                    message: "",
-                                                    preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "OK", style: .default)
-            self.present(alertController, animated: true)
-            alertController.addAction(okAction)
-        } else {
+        if comments[indexPath.row].answersCount != 0 {
             self.selectedMessageId = comments[indexPath.row].answers
             self.performSegue(withIdentifier: "ShowAnswers", sender: selectedMessageId)
         }

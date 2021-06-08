@@ -15,17 +15,17 @@
             <objects>
                 <viewController id="yYj-D8-84q" customClass="GetListVC" customModule="GuestBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6kt-yO-iIg">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="e1x-EX-JIA">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="708"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="674"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qbc-cR-7zt" customClass="MyButton" customModule="GuestBook" customModuleProvider="target">
-                                <rect key="frame" x="20" y="728" width="374" height="40"/>
+                                <rect key="frame" x="20" y="782" width="374" height="40"/>
                                 <color key="backgroundColor" name="ButtonColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="5La-mr-WDK"/>
@@ -50,7 +50,13 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Get list" image="rectangle.and.pencil.and.ellipsis" catalog="system" id="s0o-bT-ZKb"/>
-                    <navigationItem key="navigationItem" title="Get List" id="On4-Va-VIz"/>
+                    <navigationItem key="navigationItem" title="Get List" id="On4-Va-VIz">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="6hd-Xs-dqL">
+                            <connections>
+                                <segue destination="2nF-mn-z5o" kind="show" id="Ox7-22-Yx4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="answerTableView" destination="e1x-EX-JIA" id="Tnv-P2-Jay"/>
                         <segue destination="Tt2-QF-8oD" kind="show" identifier="ShowAnswers" id="Lbd-Gt-fyu"/>
@@ -61,16 +67,139 @@
             </objects>
             <point key="canvasLocation" x="-2720.289855072464" y="-295.3125"/>
         </scene>
+        <!--New Comment-->
+        <scene sceneID="VNk-Cr-n1J">
+            <objects>
+                <viewController id="2nF-mn-z5o" customClass="NewComment" customModule="GuestBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="urv-2e-GMJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to input your comment" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="77W-GS-cYU" customClass="MyTextField" customModule="GuestBook" customModuleProvider="target">
+                                <rect key="frame" x="20" y="173" width="374" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="yes" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jog-la-gtR">
+                                <rect key="frame" x="20" y="138" width="374" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="yGg-ar-16x"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y5O-Pd-3zL" customClass="MyButton" customModule="GuestBook" customModuleProvider="target">
+                                <rect key="frame" x="20" y="767" width="374" height="45"/>
+                                <color key="backgroundColor" name="ButtonColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="7Ts-pQ-c3a"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Add comment">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addCommennt:" destination="2nF-mn-z5o" eventType="touchUpInside" id="Mup-fk-wly"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JYM-Py-j6O"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Y5O-Pd-3zL" firstAttribute="top" relation="greaterThanOrEqual" secondItem="77W-GS-cYU" secondAttribute="bottom" constant="30" id="KFp-h0-S9k"/>
+                            <constraint firstItem="JYM-Py-j6O" firstAttribute="trailing" secondItem="Jog-la-gtR" secondAttribute="trailing" constant="20" id="Ly4-Nt-3Ny"/>
+                            <constraint firstItem="77W-GS-cYU" firstAttribute="leading" secondItem="JYM-Py-j6O" secondAttribute="leading" constant="20" id="O7P-rE-TyY"/>
+                            <constraint firstItem="JYM-Py-j6O" firstAttribute="bottom" secondItem="Y5O-Pd-3zL" secondAttribute="bottom" constant="50" id="Yct-6y-zis"/>
+                            <constraint firstItem="Jog-la-gtR" firstAttribute="leading" secondItem="JYM-Py-j6O" secondAttribute="leading" constant="20" id="bMm-6s-J9j"/>
+                            <constraint firstItem="JYM-Py-j6O" firstAttribute="trailing" secondItem="77W-GS-cYU" secondAttribute="trailing" constant="20" id="cpm-wR-gqS"/>
+                            <constraint firstItem="Y5O-Pd-3zL" firstAttribute="leading" secondItem="JYM-Py-j6O" secondAttribute="leading" constant="20" id="gQF-Gf-rHc"/>
+                            <constraint firstItem="77W-GS-cYU" firstAttribute="top" secondItem="Jog-la-gtR" secondAttribute="bottom" constant="5" id="vhD-4v-w9W"/>
+                            <constraint firstItem="JYM-Py-j6O" firstAttribute="trailing" secondItem="Y5O-Pd-3zL" secondAttribute="trailing" constant="20" id="wRz-kZ-3Tm"/>
+                            <constraint firstItem="Jog-la-gtR" firstAttribute="top" secondItem="JYM-Py-j6O" secondAttribute="top" constant="50" id="zpR-Vn-Jb8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ym7-Su-LFK"/>
+                    <connections>
+                        <outlet property="commentTextField" destination="77W-GS-cYU" id="zPx-cF-7zi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="olZ-go-Xi4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2720" y="471"/>
+        </scene>
+        <!--New Answer-->
+        <scene sceneID="Hef-l2-AgP">
+            <objects>
+                <viewController id="V3Z-Ot-jty" customClass="NewAnswer" customModule="GuestBook" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C1G-Mn-cf9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eO2-H6-EaB">
+                                <rect key="frame" x="20" y="118" width="374" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="KJ7-HG-h9v"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vta-RZ-rCM" customClass="MyButton" customModule="GuestBook" customModuleProvider="target">
+                                <rect key="frame" x="20" y="767" width="374" height="45"/>
+                                <color key="backgroundColor" name="ButtonColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="8zG-s2-lho"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <state key="normal" title="Add answer"/>
+                                <connections>
+                                    <action selector="addAnswerButtonTapped:" destination="V3Z-Ot-jty" eventType="touchUpInside" id="ZGm-rP-G59"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to input your answer" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="xZP-Fp-TLg" customClass="MyTextField" customModule="GuestBook" customModuleProvider="target">
+                                <rect key="frame" x="20" y="173" width="374" height="34"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Q2v-mO-Q6B"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Q2v-mO-Q6B" firstAttribute="trailing" secondItem="Vta-RZ-rCM" secondAttribute="trailing" constant="20" id="2gc-mH-lbO"/>
+                            <constraint firstItem="xZP-Fp-TLg" firstAttribute="leading" secondItem="Q2v-mO-Q6B" secondAttribute="leading" constant="20" id="4AO-f6-OQj"/>
+                            <constraint firstItem="Q2v-mO-Q6B" firstAttribute="trailing" secondItem="eO2-H6-EaB" secondAttribute="trailing" constant="20" id="75H-w7-3og"/>
+                            <constraint firstItem="Vta-RZ-rCM" firstAttribute="leading" secondItem="Q2v-mO-Q6B" secondAttribute="leading" constant="20" id="90K-9I-XIg"/>
+                            <constraint firstItem="Q2v-mO-Q6B" firstAttribute="trailing" secondItem="xZP-Fp-TLg" secondAttribute="trailing" constant="20" id="Cdz-aU-3zv"/>
+                            <constraint firstItem="eO2-H6-EaB" firstAttribute="leading" secondItem="Q2v-mO-Q6B" secondAttribute="leading" constant="20" id="Hte-Bm-pwT"/>
+                            <constraint firstItem="Vta-RZ-rCM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xZP-Fp-TLg" secondAttribute="bottom" constant="30" id="JJR-3a-LnB"/>
+                            <constraint firstItem="xZP-Fp-TLg" firstAttribute="top" secondItem="eO2-H6-EaB" secondAttribute="bottom" constant="5" id="cTi-UU-OUu"/>
+                            <constraint firstItem="eO2-H6-EaB" firstAttribute="top" secondItem="Q2v-mO-Q6B" secondAttribute="top" constant="30" id="d55-jk-RPR"/>
+                            <constraint firstItem="Q2v-mO-Q6B" firstAttribute="bottom" secondItem="Vta-RZ-rCM" secondAttribute="bottom" constant="50" id="riV-8D-yxN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="AjT-LZ-Uxx"/>
+                    <connections>
+                        <outlet property="answerTextField" destination="xZP-Fp-TLg" id="MNF-eP-Vx8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0jx-DM-R8Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1961" y="471"/>
+        </scene>
         <!--Answers-->
         <scene sceneID="SfN-KU-4pv">
             <objects>
                 <viewController id="Tt2-QF-8oD" customClass="AnswersVC" customModule="GuestBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hZb-dO-wOL">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Rvy-Ir-zU6">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -83,8 +212,15 @@
                             <constraint firstItem="Rvy-Ir-zU6" firstAttribute="top" secondItem="IhJ-M9-TIs" secondAttribute="top" id="vll-lF-eyY"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Answers" leftItemsSupplementBackButton="YES" id="jSX-tj-SmK"/>
+                    <navigationItem key="navigationItem" title="Answers" leftItemsSupplementBackButton="YES" id="jSX-tj-SmK">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="r5S-GM-m66">
+                            <connections>
+                                <segue destination="V3Z-Ot-jty" kind="show" id="WLL-iq-sIT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="addAnswerButton" destination="r5S-GM-m66" id="Ow2-FK-3fw"/>
                         <outlet property="answerTabelView" destination="Rvy-Ir-zU6" id="Jvx-S7-sSv"/>
                     </connections>
                 </viewController>
@@ -97,15 +233,15 @@
             <objects>
                 <viewController id="znA-MP-DDH" customClass="LoadingVC" customModule="GuestBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DkI-rW-alC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="gEm-CD-naA">
-                                <rect key="frame" x="188.5" y="402.5" width="37" height="37"/>
+                                <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                                 <color key="color" name="ButtonColor"/>
                             </activityIndicatorView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="by Tony S." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaK-LJ-uDt">
-                                <rect key="frame" x="167.5" y="737" width="79" height="21"/>
+                                <rect key="frame" x="167.5" y="791" width="79" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="ButtonColor"/>
                                 <nil key="highlightedColor"/>
@@ -158,11 +294,11 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginVC" customModule="GuestBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGI-18-djr" userLabel="EmailLabel">
-                                <rect key="frame" x="20" y="150" width="374" height="30"/>
+                                <rect key="frame" x="20" y="238" width="374" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="LMp-6T-nJH"/>
                                 </constraints>
@@ -171,7 +307,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to input your email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="bL1-ct-CrK" userLabel="EmailField" customClass="MyTextField" customModule="GuestBook" customModuleProvider="target">
-                                <rect key="frame" x="20" y="185" width="374" height="34"/>
+                                <rect key="frame" x="20" y="273" width="374" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -183,7 +319,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4VD-tP-4fk" userLabel="PasswordLabel">
-                                <rect key="frame" x="20" y="234" width="374" height="30"/>
+                                <rect key="frame" x="20" y="322" width="374" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="hBn-q3-ANu"/>
                                 </constraints>
@@ -192,7 +328,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to input your password" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="YVt-fc-OZi" userLabel="PasswordField" customClass="MyTextField" customModule="GuestBook" customModuleProvider="target">
-                                <rect key="frame" x="20" y="269" width="374" height="34"/>
+                                <rect key="frame" x="20" y="357" width="374" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -204,7 +340,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Upb-Mb-TU2" userLabel="LogInButton" customClass="MyButton" customModule="GuestBook" customModuleProvider="target">
-                                <rect key="frame" x="20" y="343" width="374" height="45"/>
+                                <rect key="frame" x="20" y="431" width="374" height="45"/>
                                 <color key="backgroundColor" name="ButtonColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="H5b-CK-aMM"/>
@@ -218,7 +354,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wUY-7X-ol1" userLabel="RegisterButton" customClass="MyButton" customModule="GuestBook" customModuleProvider="target">
-                                <rect key="frame" x="20" y="713" width="374" height="45"/>
+                                <rect key="frame" x="20" y="767" width="374" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="XAb-FV-Nio"/>
@@ -232,7 +368,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWE-OK-fG6">
-                                <rect key="frame" x="112" y="677" width="190" height="21"/>
+                                <rect key="frame" x="112" y="731" width="190" height="21"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -282,11 +418,11 @@
             <objects>
                 <viewController id="D9D-Rd-JXM" customClass="RegisterVC" customModule="GuestBook" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ScX-9L-rqM">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Photography" translatesAutoresizingMaskIntoConstraints="NO" id="X9J-Hv-eD8">
-                                <rect key="frame" x="157" y="20" width="100" height="100"/>
+                                <rect key="frame" x="157" y="108" width="100" height="100"/>
                                 <color key="tintColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="KPU-ND-LQ5"/>
@@ -295,7 +431,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bK-e8-s0X" customClass="MyButton" customModule="GuestBook" customModuleProvider="target">
-                                <rect key="frame" x="20" y="140" width="374" height="40"/>
+                                <rect key="frame" x="20" y="228" width="374" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="29R-3d-Gxj"/>
@@ -309,7 +445,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ipx-4H-fVc" userLabel="NamelLabel">
-                                <rect key="frame" x="20" y="195" width="374" height="30"/>
+                                <rect key="frame" x="20" y="283" width="374" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="o25-tj-ftc"/>
                                     <constraint firstAttribute="height" constant="30" id="rpt-a9-fh4"/>
@@ -319,7 +455,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MxR-E0-5aQ" userLabel="EmailLabel">
-                                <rect key="frame" x="20" y="279" width="374" height="30"/>
+                                <rect key="frame" x="20" y="367" width="374" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="ElL-9H-JW1"/>
                                     <constraint firstAttribute="height" constant="30" id="F9O-yF-rmn"/>
@@ -329,7 +465,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to input your email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="AzO-b1-7T2" userLabel="EmailField" customClass="MyTextField" customModule="GuestBook" customModuleProvider="target">
-                                <rect key="frame" x="20" y="314" width="374" height="34"/>
+                                <rect key="frame" x="20" y="402" width="374" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -341,7 +477,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zc-dP-ouy" userLabel="PasswordLabel">
-                                <rect key="frame" x="20" y="363" width="374" height="30"/>
+                                <rect key="frame" x="20" y="451" width="374" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="qCO-QZ-tRr"/>
                                     <constraint firstAttribute="height" constant="30" id="xjm-CR-dr3"/>
@@ -351,7 +487,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to input your password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="MQ2-PR-Vig" userLabel="PasswordField" customClass="MyTextField" customModule="GuestBook" customModuleProvider="target">
-                                <rect key="frame" x="20" y="398" width="374" height="34"/>
+                                <rect key="frame" x="20" y="486" width="374" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -363,7 +499,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gft-0m-9VB" userLabel="RegisterButton" customClass="MyButton" customModule="GuestBook" customModuleProvider="target">
-                                <rect key="frame" x="20" y="713" width="374" height="45"/>
+                                <rect key="frame" x="20" y="767" width="374" height="45"/>
                                 <color key="backgroundColor" name="ButtonColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="86a-OU-4vl"/>
@@ -378,7 +514,7 @@
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to input your name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="6gg-k1-W8R" userLabel="NameField" customClass="MyTextField" customModule="GuestBook" customModuleProvider="target">
-                                <rect key="frame" x="20" y="230" width="374" height="34"/>
+                                <rect key="frame" x="20" y="318" width="374" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -390,7 +526,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Sg-xF-pRC">
-                                <rect key="frame" x="20" y="447" width="374" height="30"/>
+                                <rect key="frame" x="20" y="535" width="374" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="fWJ-rS-i2v"/>
                                 </constraints>
@@ -399,7 +535,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to input confirm password" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="boT-4d-bNk" customClass="MyTextField" customModule="GuestBook" customModuleProvider="target">
-                                <rect key="frame" x="20" y="482" width="374" height="34"/>
+                                <rect key="frame" x="20" y="570" width="374" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -466,7 +602,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="l1y-zY-15H"/>
+        <segue reference="sMe-0I-Aks"/>
         <segue reference="GsW-dD-a6o"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -479,6 +615,9 @@
         <namedColor name="GrayColor50">
             <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

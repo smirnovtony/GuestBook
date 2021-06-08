@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		156678865483BCA81711E2DC /* libPods-GuestBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50361AC87CCD1AC27BC4546A /* libPods-GuestBook.a */; };
 		3278EB60266F6B310023F18E /* LabelDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278EB5F266F6B310023F18E /* LabelDesignable.swift */; };
+		3278EB63266F8AD60023F18E /* NewComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278EB62266F8AD60023F18E /* NewComment.swift */; };
+		3278EB65266F95340023F18E /* NewAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278EB64266F95340023F18E /* NewAnswer.swift */; };
+		3278EB67266F9A930023F18E /* WebSockets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278EB66266F9A930023F18E /* WebSockets.swift */; };
+		3278EB69266F9AB40023F18E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278EB68266F9AB40023F18E /* Configuration.swift */; };
 		EA13F74826409C6600D88722 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F74726409C6600D88722 /* LoginVC.swift */; };
 		EA13F74A2640A40F00D88722 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F7492640A40F00D88722 /* RegisterVC.swift */; };
 		EA13F74D2641142500D88722 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F74C2641142500D88722 /* MyTextField.swift */; };
@@ -38,6 +42,10 @@
 
 /* Begin PBXFileReference section */
 		3278EB5F266F6B310023F18E /* LabelDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelDesignable.swift; sourceTree = "<group>"; };
+		3278EB62266F8AD60023F18E /* NewComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewComment.swift; sourceTree = "<group>"; };
+		3278EB64266F95340023F18E /* NewAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAnswer.swift; sourceTree = "<group>"; };
+		3278EB66266F9A930023F18E /* WebSockets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSockets.swift; sourceTree = "<group>"; };
+		3278EB68266F9AB40023F18E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		50361AC87CCD1AC27BC4546A /* libPods-GuestBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GuestBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3D22426D16FBC136B3EB88 /* Pods-GuestBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuestBook.release.xcconfig"; path = "Target Support Files/Pods-GuestBook/Pods-GuestBook.release.xcconfig"; sourceTree = "<group>"; };
 		9B82AB7ADA676CAE699EAF42 /* Pods-GuestBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuestBook.debug.xcconfig"; path = "Target Support Files/Pods-GuestBook/Pods-GuestBook.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +93,8 @@
 		3278EB5E266F501C0023F18E /* Websockets */ = {
 			isa = PBXGroup;
 			children = (
+				3278EB66266F9A930023F18E /* WebSockets.swift */,
+				3278EB68266F9AB40023F18E /* Configuration.swift */,
 			);
 			path = Websockets;
 			sourceTree = "<group>";
@@ -173,6 +183,8 @@
 				EA13F75026412D6000D88722 /* LoadingVC.swift */,
 				EA13F7622642747000D88722 /* GetListVC.swift */,
 				EAC6D1DF26451FFD0038A0BC /* AnswersVC.swift */,
+				3278EB62266F8AD60023F18E /* NewComment.swift */,
+				3278EB64266F95340023F18E /* NewAnswer.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -333,6 +345,7 @@
 				EA13F7652642912500D88722 /* Answer.swift in Sources */,
 				EA13F74826409C6600D88722 /* LoginVC.swift in Sources */,
 				EA58EAED26407F18003933BF /* AppDelegate.swift in Sources */,
+				3278EB67266F9A930023F18E /* WebSockets.swift in Sources */,
 				EA13F74A2640A40F00D88722 /* RegisterVC.swift in Sources */,
 				EA58EAEF26407F18003933BF /* SceneDelegate.swift in Sources */,
 				EAC6D1F726465C6D0038A0BC /* UIImage+Ex.swift in Sources */,
@@ -340,11 +353,14 @@
 				EA13F77C2644270600D88722 /* Links.swift in Sources */,
 				EA13F75C2641CC0A00D88722 /* NetworkManager.swift in Sources */,
 				EA13F77E26442A0C00D88722 /* Meta.swift in Sources */,
+				3278EB65266F95340023F18E /* NewAnswer.swift in Sources */,
 				3278EB60266F6B310023F18E /* LabelDesignable.swift in Sources */,
 				EA13F7742642D2B300D88722 /* MyTableViewCell.swift in Sources */,
 				EA13F74D2641142500D88722 /* MyTextField.swift in Sources */,
+				3278EB63266F8AD60023F18E /* NewComment.swift in Sources */,
 				EA13F76126426D3C00D88722 /* MyLabel.swift in Sources */,
 				EA13F75A2641B94500D88722 /* EndPoints.swift in Sources */,
+				3278EB69266F9AB40023F18E /* Configuration.swift in Sources */,
 				EAC6D1F4264659A50038A0BC /* AnswersTableViewCell.swift in Sources */,
 				EAC6D1EA264551D40038A0BC /* Comment.swift in Sources */,
 				EAC6D1EC264650020038A0BC /* Data+Ex.swift in Sources */,
