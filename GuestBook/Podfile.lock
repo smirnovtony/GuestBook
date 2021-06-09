@@ -6,13 +6,23 @@ PODS:
     - Alamofire (~> 4.7)
     - ObjectMapper (~> 3.4)
   - ObjectMapper (3.5.3)
+  - PusherSwift (8.0.0):
+    - ReachabilitySwift (~> 5.0)
+    - Starscream (~> 3.1)
+  - ReachabilitySwift (5.0.0)
+  - Starscream (3.1.1)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - AlamofireMapper
   - AlamofireObjectMapper
+  - PusherSwift
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - PusherSwift
+    - ReachabilitySwift
+    - Starscream
   trunk:
     - Alamofire
     - AlamofireMapper
@@ -24,7 +34,10 @@ SPEC CHECKSUMS:
   AlamofireMapper: bdcd94eb53ab63ec9a12e4685bba73e3d0072f36
   AlamofireObjectMapper: 1989f690e982b71921b9253f53a4f33a9bc00d88
   ObjectMapper: 97111c97e054a6ee25917662106689f0b4127b37
+  PusherSwift: 8f18b7beaf383e0475607ab6a3f89f477637fb21
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  Starscream: 4bb2f9942274833f7b4d296a55504dcfc7edb7b0
 
-PODFILE CHECKSUM: 8fc0d726de2eec0b9138153acc90caa0e0e300a4
+PODFILE CHECKSUM: 6180a74a8c1e0b12805c977cf7639f58f300874b
 
 COCOAPODS: 1.10.1

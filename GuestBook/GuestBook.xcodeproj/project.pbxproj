@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		156678865483BCA81711E2DC /* libPods-GuestBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50361AC87CCD1AC27BC4546A /* libPods-GuestBook.a */; };
 		3278EB60266F6B310023F18E /* LabelDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278EB5F266F6B310023F18E /* LabelDesignable.swift */; };
 		3278EB63266F8AD60023F18E /* NewComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278EB62266F8AD60023F18E /* NewComment.swift */; };
 		3278EB65266F95340023F18E /* NewAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278EB64266F95340023F18E /* NewAnswer.swift */; };
 		3278EB67266F9A930023F18E /* WebSockets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278EB66266F9A930023F18E /* WebSockets.swift */; };
 		3278EB69266F9AB40023F18E /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3278EB68266F9AB40023F18E /* Configuration.swift */; };
+		DD4CDDF145CA515A5339FFE4 /* Pods_GuestBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23E2F4027B0AC4C8B52AA1E7 /* Pods_GuestBook.framework */; };
 		EA13F74826409C6600D88722 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F74726409C6600D88722 /* LoginVC.swift */; };
 		EA13F74A2640A40F00D88722 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F7492640A40F00D88722 /* RegisterVC.swift */; };
 		EA13F74D2641142500D88722 /* MyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA13F74C2641142500D88722 /* MyTextField.swift */; };
@@ -41,12 +41,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		23E2F4027B0AC4C8B52AA1E7 /* Pods_GuestBook.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GuestBook.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3278EB5F266F6B310023F18E /* LabelDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelDesignable.swift; sourceTree = "<group>"; };
 		3278EB62266F8AD60023F18E /* NewComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewComment.swift; sourceTree = "<group>"; };
 		3278EB64266F95340023F18E /* NewAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAnswer.swift; sourceTree = "<group>"; };
 		3278EB66266F9A930023F18E /* WebSockets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSockets.swift; sourceTree = "<group>"; };
 		3278EB68266F9AB40023F18E /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
-		50361AC87CCD1AC27BC4546A /* libPods-GuestBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GuestBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C3D22426D16FBC136B3EB88 /* Pods-GuestBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuestBook.release.xcconfig"; path = "Target Support Files/Pods-GuestBook/Pods-GuestBook.release.xcconfig"; sourceTree = "<group>"; };
 		9B82AB7ADA676CAE699EAF42 /* Pods-GuestBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GuestBook.debug.xcconfig"; path = "Target Support Files/Pods-GuestBook/Pods-GuestBook.debug.xcconfig"; sourceTree = "<group>"; };
 		EA13F74726409C6600D88722 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
@@ -83,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				156678865483BCA81711E2DC /* libPods-GuestBook.a in Frameworks */,
+				DD4CDDF145CA515A5339FFE4 /* Pods_GuestBook.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +102,7 @@
 		787B7710CA4221A4147B0312 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				50361AC87CCD1AC27BC4546A /* libPods-GuestBook.a */,
+				23E2F4027B0AC4C8B52AA1E7 /* Pods_GuestBook.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -254,6 +254,7 @@
 				EA58EAE526407F18003933BF /* Sources */,
 				EA58EAE626407F18003933BF /* Frameworks */,
 				EA58EAE726407F18003933BF /* Resources */,
+				4A59C90F1C51F41C62692678 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -311,6 +312,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4A59C90F1C51F41C62692678 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GuestBook/Pods-GuestBook-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GuestBook/Pods-GuestBook-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GuestBook/Pods-GuestBook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		511D57868FFBFF6016441A39 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

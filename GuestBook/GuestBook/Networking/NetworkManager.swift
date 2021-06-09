@@ -23,25 +23,34 @@ class NetworkManager {
     var loadedComments: [Comment] = []
     var meta: Meta?
     var links: Links?
-
+//    var isAdmin: Int?
+    
+    
     var path: String { return EndPoints.baseURL + EndPoints.path }
 
     lazy var userLogged: String = self.loadTestValue()
+    lazy var userIsAdmin: Int = self.loadTestInt()
 
     //MARK: - Structs
 
     private struct Keys {
         static let tokenData = "tokenData"
+        static let isAdmin = "isAdmin"
     }
 
     //MARK: - Functions
 
     func saveTestValue() {
         UserDefaults.standard.setValue(userLogged, forKey: "tokenData")
+        UserDefaults.standard.setValue(userLogged, forKey: "tokenData")
     }
     func loadTestValue() -> String {
         let value = UserDefaults.standard.value(forKey: "tokenData") as? String
         return value ?? ""
+    }
+    func loadTestInt() -> Int {
+        let value = UserDefaults.standard.value(forKey: "isAdmin") as? Int
+        return value ?? 0
     }
     
     func doRequestWithHeaders() -> HTTPHeaders {
@@ -65,9 +74,12 @@ class NetworkManager {
                     let responseDict = value as? [String: [String: Any]]
                     guard let result = responseDict?["user"] else { return }
                     self.user.updateValue(result, forKey: "user")
+                    
                     guard let result = responseDict?["token"] else { return }
                     self.token.updateValue(result, forKey: "token")
                     UserDefaults.standard.set(self.getAccessToken(), forKey: "tokenData")
+                    UserDefaults.standard.set(self.isAdmin(), forKey: "isAdmin")
+//                    self.isAdmin = self.userIsAdmin()
                 case .failure(let error):
                     Swift.debugPrint(error)
                     break
@@ -112,6 +124,18 @@ class NetworkManager {
         }
         return accessToken
     }
+    
+    func isAdmin() -> Int {
+        var userDict: [String: Any] = [:]
+        var userAdmin: Int = 0
+        if let result = user["user"] {
+            userDict = result as! [String: Any]
+            if let result = userDict["is_admin"] {
+                userAdmin = result as! Int
+            }
+        }
+        return userAdmin
+    }
 
     func getComments() {
         guard let url = URL(string: (self.path + "/posts")) else { return }
@@ -152,11 +176,14 @@ class NetworkManager {
             }
         }
     }
-    func addComment() {
+    func addComment(with title: String, message: String) {
+        var parameters = [String : Any]()
+        parameters["title"] = title
+        parameters["message"] = message
         guard let url = URL(string: (self.path + "/posts")) else { return }
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserDefaults.standard.value(forKey: "tokenData") ?? getAccessToken())"]
 
-        Alamofire.request(url, method: .get, parameters: nil, encoding: URLEncoding.httpBody, headers: headers).responseJSON { (response) in
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON { (response) in
             if response.response?.statusCode == 200 {
                 let resultDict = response.value as! [String: Any]
                 self.dict = resultDict
@@ -171,5 +198,4 @@ class NetworkManager {
             }
         }
     }
-
 }

@@ -19,17 +19,31 @@ class AnswersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     private let cellReuseIdentifierAns = "MyAnsCell"
     
     var answers: [Answer] = []
+    let userAdmin = UserDefaults.standard.value(forKey: "isAdmin")
+    
+    func userIsAdmin() {
+        guard let userStatement = userAdmin else { return }
+        if let userRightsStatus = userStatement as? Int {
+            if userRightsStatus == 0 {
+                if let button = self.navigationItem.rightBarButtonItem {
+                    button.isEnabled = false
+                    button.tintColor = UIColor.clear
+                }
+            }
+        }
+    }
     
     //MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        if NetworkManager.shared.user {
-//        }
+        if !NetworkManager.shared.user.isEmpty {
+        }
         self.answerTabelView.delegate = self
         self.answerTabelView.dataSource = self
         self.answerTabelView.register(UINib(nibName: "AnswersTableViewCell", bundle: nil), forCellReuseIdentifier: cellReuseIdentifierAns)
         self.answerTabelView.backgroundColor = .white
+        self.userIsAdmin()
         
     }
     
@@ -45,4 +59,6 @@ class AnswersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         cell.setAnswerCell(model: self.answers[indexPath.row])
         return cell
     }
+    
+
 }
