@@ -14,6 +14,7 @@ class NewAnswer: UIViewController {
     
     //MARK: - Variables
     
+    var postId: Int?
     private var answerText: String {
         self.answerTextField.text ?? ""
     }
@@ -31,7 +32,25 @@ class NewAnswer: UIViewController {
         }
     }
     
-    @IBAction func addAnswerButtonTapped(_ sender: Any) {
+    private func alert(title: String, message: String) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .destructive)
+        self.present(alertController, animated: true)
+        alertController.addAction(okAction)
     }
     
+    @IBAction func addAnswerButtonTapped(_ sender: Any) {
+        if answerText.isEmpty {
+            alert(title: "Error", message: "Message is empty!")
+        } else {
+            guard let postIdentify = postId else { return }
+            let postIdAsString = String(postIdentify)
+            NetworkManager.shared.addAnswer(post: postIdAsString, message: answerText) { (success) in
+                self.performSegue(withIdentifier: "updatePosts", sender: self)
+            }
+        }
+    }
 }
+

@@ -29,9 +29,11 @@ class NewComment: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if touches.first != nil {
             view.endEditing(true)
@@ -52,8 +54,9 @@ class NewComment: UIViewController {
             print(commentTitle, commentText)
             alert(title: "Error", message: "Fill in all the fields!")
         } else {
-            NetworkManager.shared.addComment(with: commentTitle, message: commentText)
-            self.performSegue(withIdentifier: "reloadPosts", sender: self)
+            NetworkManager.shared.addComment(with: commentTitle, message: commentText) { (success) in
+                self.performSegue(withIdentifier: "reloadPosts", sender: self)
+            }
         }
     }
 }

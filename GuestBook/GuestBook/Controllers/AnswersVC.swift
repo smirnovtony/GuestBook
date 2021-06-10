@@ -19,6 +19,7 @@ class AnswersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     private let cellReuseIdentifierAns = "MyAnsCell"
     
     var answers: [Answer] = []
+    var messageId: Int = 0
     let userAdmin = UserDefaults.standard.value(forKey: "isAdmin")
     
     func userIsAdmin() {
@@ -37,8 +38,6 @@ class AnswersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if !NetworkManager.shared.user.isEmpty {
-        }
         self.answerTabelView.delegate = self
         self.answerTabelView.dataSource = self
         self.answerTabelView.register(UINib(nibName: "AnswersTableViewCell", bundle: nil), forCellReuseIdentifier: cellReuseIdentifierAns)
@@ -60,5 +59,19 @@ class AnswersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
         return cell
     }
     
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        guard segue.identifier == "newAnswer",
+              let model = sender as? Int,
+              let vc =   segue.destination as? NewAnswer else { return }
+        vc.postId = model
+    }
+    
+    @IBAction func AddButtonTapped(_ sender: Any) {
+        for i in answers {
+            if let postId = i.postId {
+                messageId = postId
+            }
+        }
+        performSegue(withIdentifier: "newAnswer", sender: messageId)
+    }
 }

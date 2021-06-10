@@ -12,30 +12,42 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="200" id="KGk-i7-Jjw" customClass="MyTableViewCell" customModule="GuestBook" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="190" id="KGk-i7-Jjw" customClass="MyTableViewCell" customModule="GuestBook" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="431" height="200"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
                 <rect key="frame" x="0.0" y="0.0" width="431" height="200"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sJ-CJ-n9t" customClass="MyLabel" customModule="GuestBook" customModuleProvider="target">
-                        <rect key="frame" x="110" y="15" width="301" height="30"/>
-                        <color key="backgroundColor" name="ButtonColor"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tmj-Gy-JOO" customClass="MyView" customModule="GuestBook" customModuleProvider="target">
+                        <rect key="frame" x="110" y="15" width="301" height="124"/>
+                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="tintColor" name="AccentColor"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PeG-T4-0ds">
+                        <rect key="frame" x="0.0" y="0.0" width="431" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="s94-jI-jPH"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="254" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sJ-CJ-n9t" customClass="MyLabel" customModule="GuestBook" customModuleProvider="target">
+                        <rect key="frame" x="120" y="15" width="291" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="SXg-9E-1aQ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="253" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ug7-YK-KMp" customClass="MyLabel" customModule="GuestBook" customModuleProvider="target">
-                        <rect key="frame" x="110" y="50" width="301" height="30"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <rect key="frame" x="120" y="55" width="291" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="d1L-tP-Dlr"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -47,43 +59,40 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0BU-dc-am9" customClass="MyLabel" customModule="GuestBook" customModuleProvider="target">
-                        <rect key="frame" x="110" y="85" width="301" height="30"/>
-                        <color key="backgroundColor" name="GrayColor50"/>
+                        <rect key="frame" x="120" y="95" width="291" height="30"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="2qM-5T-yB4"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CreateAt" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oea-Sr-Ju8">
-                        <rect key="frame" x="351.5" y="158" width="59.5" height="32"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CreateAt" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oea-Sr-Ju8" customClass="MyLabel" customModule="GuestBook" customModuleProvider="target">
+                        <rect key="frame" x="341.5" y="15" width="59.5" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="59" id="QYO-l4-Qvx"/>
-                            <constraint firstAttribute="height" constant="32" id="b4V-tL-8Pb"/>
+                            <constraint firstAttribute="height" constant="30" id="f1R-4Z-ED5"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                         <color key="textColor" systemColor="systemGrayColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Answers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1d-1C-VAC" customClass="MyLabel" customModule="GuestBook" customModuleProvider="target">
-                        <rect key="frame" x="110" y="123" width="301" height="30"/>
-                        <color key="backgroundColor" name="GrayColor50"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Messages" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A1d-1C-VAC" customClass="MyLabel" customModule="GuestBook" customModuleProvider="target">
+                        <rect key="frame" x="110" y="144" width="284" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="Bai-PX-GSc"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Count" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uB-5b-R4V" customClass="LabelDesignable" customModule="GuestBook" customModuleProvider="target">
-                        <rect key="frame" x="341" y="122" width="60" height="32"/>
+                        <rect key="frame" x="391" y="144" width="20" height="30"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="32" id="88v-rm-mTt"/>
-                            <constraint firstAttribute="width" constant="60" id="g74-WM-cz5"/>
+                            <constraint firstAttribute="height" constant="30" id="88v-rm-mTt"/>
+                            <constraint firstAttribute="width" constant="20" id="Xcn-tD-Amh"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="14"/>
                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <color key="shadowColor" systemColor="systemGray2Color"/>
@@ -105,29 +114,38 @@
                     </label>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="Ug7-YK-KMp" firstAttribute="top" secondItem="8sJ-CJ-n9t" secondAttribute="bottom" constant="5" id="0dJ-4w-tzw"/>
+                    <constraint firstItem="A1d-1C-VAC" firstAttribute="top" secondItem="Tmj-Gy-JOO" secondAttribute="bottom" constant="5" id="09c-PS-w7X"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="wfL-2j-1FK" secondAttribute="bottom" constant="90" id="4mW-qB-VZU"/>
                     <constraint firstItem="wfL-2j-1FK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="50N-70-A08"/>
-                    <constraint firstItem="8uB-5b-R4V" firstAttribute="top" secondItem="0BU-dc-am9" secondAttribute="bottom" constant="7" id="Abl-mP-9Wb"/>
-                    <constraint firstItem="8sJ-CJ-n9t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="EI8-nY-XQ7"/>
-                    <constraint firstItem="0BU-dc-am9" firstAttribute="top" secondItem="Ug7-YK-KMp" secondAttribute="bottom" constant="5" id="FkL-tO-QlS"/>
-                    <constraint firstAttribute="trailing" secondItem="Ug7-YK-KMp" secondAttribute="trailing" constant="20" id="Gnx-Md-jq6"/>
-                    <constraint firstItem="Ug7-YK-KMp" firstAttribute="leading" secondItem="wfL-2j-1FK" secondAttribute="trailing" constant="10" id="PUJ-Tx-J5m"/>
-                    <constraint firstItem="A1d-1C-VAC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="110" id="SZ6-WL-ruC"/>
-                    <constraint firstAttribute="trailing" secondItem="oea-Sr-Ju8" secondAttribute="trailing" constant="20" id="U8v-S3-sZT"/>
-                    <constraint firstAttribute="trailing" secondItem="A1d-1C-VAC" secondAttribute="trailing" constant="20" id="Vgb-zw-B1H"/>
-                    <constraint firstItem="A1d-1C-VAC" firstAttribute="top" secondItem="0BU-dc-am9" secondAttribute="bottom" constant="8" id="WJt-UK-rFm"/>
-                    <constraint firstItem="oea-Sr-Ju8" firstAttribute="top" secondItem="A1d-1C-VAC" secondAttribute="bottom" constant="5" id="XTf-zl-y5C"/>
+                    <constraint firstItem="PeG-T4-0ds" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="5ah-8D-Lxg"/>
+                    <constraint firstItem="A1d-1C-VAC" firstAttribute="right" secondItem="8uB-5b-R4V" secondAttribute="left" constant="3" id="D7f-58-yea"/>
+                    <constraint firstItem="8sJ-CJ-n9t" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="EaS-wT-2QG"/>
+                    <constraint firstAttribute="trailing" secondItem="8sJ-CJ-n9t" secondAttribute="trailing" constant="20" id="IVw-FC-KKN"/>
+                    <constraint firstItem="Tmj-Gy-JOO" firstAttribute="leading" secondItem="wfL-2j-1FK" secondAttribute="trailing" constant="10" id="Jmt-Ju-lVz"/>
+                    <constraint firstAttribute="trailing" secondItem="oea-Sr-Ju8" secondAttribute="trailing" constant="30" id="MfU-DV-giq"/>
+                    <constraint firstItem="8sJ-CJ-n9t" firstAttribute="leading" secondItem="wfL-2j-1FK" secondAttribute="trailing" constant="20" id="Nfp-ii-gtj"/>
+                    <constraint firstAttribute="trailing" secondItem="PeG-T4-0ds" secondAttribute="trailing" id="Osr-Qi-OkW"/>
+                    <constraint firstItem="Tmj-Gy-JOO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="SYj-Ob-Set"/>
+                    <constraint firstItem="0BU-dc-am9" firstAttribute="leading" secondItem="wfL-2j-1FK" secondAttribute="trailing" constant="20" id="Tx8-mi-3T1"/>
                     <constraint firstItem="wfL-2j-1FK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Zs0-MK-xPM"/>
-                    <constraint firstAttribute="trailing" secondItem="8sJ-CJ-n9t" secondAttribute="trailing" constant="20" id="cd9-d9-oGJ"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="0BU-dc-am9" secondAttribute="trailing" id="iG6-mx-Hml"/>
-                    <constraint firstAttribute="bottom" secondItem="oea-Sr-Ju8" secondAttribute="bottom" constant="20" id="kHS-1U-nJf"/>
-                    <constraint firstItem="0BU-dc-am9" firstAttribute="leading" secondItem="wfL-2j-1FK" secondAttribute="trailing" constant="10" id="lSz-s2-Lzm"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="8uB-5b-R4V" secondAttribute="trailing" constant="10" id="rQw-ce-efb"/>
-                    <constraint firstItem="8sJ-CJ-n9t" firstAttribute="leading" secondItem="wfL-2j-1FK" secondAttribute="trailing" constant="10" id="sdz-bk-BN6"/>
+                    <constraint firstAttribute="trailing" secondItem="Tmj-Gy-JOO" secondAttribute="trailing" constant="20" id="b4J-Lv-v72"/>
+                    <constraint firstItem="0BU-dc-am9" firstAttribute="top" secondItem="Ug7-YK-KMp" secondAttribute="bottom" constant="10" id="cvf-m5-2Xs"/>
+                    <constraint firstItem="PeG-T4-0ds" firstAttribute="top" secondItem="8sJ-CJ-n9t" secondAttribute="top" constant="-15" id="fMV-6D-1l7"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="8uB-5b-R4V" secondAttribute="bottom" constant="15" id="gSa-eX-g3s"/>
+                    <constraint firstAttribute="trailing" secondItem="0BU-dc-am9" secondAttribute="trailing" constant="20" id="hV9-Ml-4XK"/>
+                    <constraint firstItem="oea-Sr-Ju8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="kdj-PJ-9IN"/>
+                    <constraint firstAttribute="trailing" secondItem="Ug7-YK-KMp" secondAttribute="trailing" constant="20" id="lks-7l-WHd"/>
+                    <constraint firstItem="Ug7-YK-KMp" firstAttribute="top" secondItem="8sJ-CJ-n9t" secondAttribute="bottom" constant="10" id="pwA-lh-RCs"/>
+                    <constraint firstItem="A1d-1C-VAC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="90" id="xbX-wp-2zL"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="8uB-5b-R4V" secondAttribute="trailing" id="y48-Wk-hIi"/>
+                    <constraint firstItem="Ug7-YK-KMp" firstAttribute="leading" secondItem="wfL-2j-1FK" secondAttribute="trailing" constant="20" id="yT1-Ue-4Yd"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="A1d-1C-VAC" secondAttribute="bottom" constant="15" id="zT2-9j-T4a"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="avatarImage" destination="wfL-2j-1FK" id="qVl-Ls-K4g"/>
                 <outlet property="countLabel" destination="8uB-5b-R4V" id="7W2-hv-w4H"/>
@@ -136,24 +154,24 @@
                 <outlet property="nameLabel" destination="8sJ-CJ-n9t" id="XtW-ZB-7Ek"/>
                 <outlet property="titleLabel" destination="Ug7-YK-KMp" id="qdo-1C-iQV"/>
             </connections>
-            <point key="canvasLocation" x="26.811594202898554" y="130.58035714285714"/>
+            <point key="canvasLocation" x="26.811594202898554" y="127.23214285714285"/>
         </tableViewCell>
     </objects>
     <designables>
         <designable name="8uB-5b-R4V">
-            <size key="intrinsicContentSize" width="45" height="19"/>
+            <size key="intrinsicContentSize" width="43" height="19"/>
         </designable>
     </designables>
     <resources>
         <image name="Photography" width="101" height="101"/>
-        <namedColor name="ButtonColor">
-            <color red="1" green="0.57800000905990601" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="GrayColor50">
-            <color red="0.83700001239776611" green="0.83700001239776611" blue="0.83700001239776611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

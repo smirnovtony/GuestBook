@@ -67,19 +67,19 @@ class NetworkManager {
         guard let url = URL(string: self.path + "/auth/login") else { return }
 
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: self.doRequestWithHeaders()).responseJSON { (response) in
+            Swift.debugPrint(response)
             guard response.error == nil else { return }
+
             if response.data != nil {
                 switch response.result {
                 case .success(let value):
                     let responseDict = value as? [String: [String: Any]]
                     guard let result = responseDict?["user"] else { return }
                     self.user.updateValue(result, forKey: "user")
-                    
                     guard let result = responseDict?["token"] else { return }
                     self.token.updateValue(result, forKey: "token")
                     UserDefaults.standard.set(self.getAccessToken(), forKey: "tokenData")
                     UserDefaults.standard.set(self.isAdmin(), forKey: "isAdmin")
-//                    self.isAdmin = self.userIsAdmin()
                 case .failure(let error):
                     Swift.debugPrint(error)
                     break
@@ -176,7 +176,7 @@ class NetworkManager {
             }
         }
     }
-    func addComment(with title: String, message: String) {
+    func addComment(with title: String, message: String, completion: @escaping ((Bool) -> Void)) {
         var parameters = [String : Any]()
         parameters["title"] = title
         parameters["message"] = message
@@ -193,9 +193,37 @@ class NetworkManager {
                 self.meta = resultMeta
                 let resultLinks = Mapper<Links>().map(JSONObject: resultDict["links"])
                 self.links = resultLinks
+                completion(true)
             } else {
                 print("ERROR")
+                completion(false)
+            }
+        }
+    }
+    func addAnswer(post id: String, message: String, completion: @escaping ((Bool) -> Void)) {
+        var parameters = [String : Any]()
+        parameters["message"] = message
+        guard let url = URL(string: (self.path + "/posts" + "/\(id)/" + "answers")) else { return }
+        let headers: HTTPHeaders = ["Authorization": "Bearer \(UserDefaults.standard.value(forKey: "tokenData") ?? getAccessToken())"]
+        
+        Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON { (response) in
+            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!\(response.description)")
+            if response.response?.statusCode == 200 {
+                print(response as Any)
+                let resultDict = response.value as! [String: Any]
+                self.dict = resultDict
+                let resultData = Mapper<Comment>().mapArray(JSONObject: resultDict["data"])
+                self.comment = resultData!
+                let resultMeta = Mapper<Meta>().map(JSONObject: resultDict["meta"])
+                self.meta = resultMeta
+                let resultLinks = Mapper<Links>().map(JSONObject: resultDict["links"])
+                self.links = resultLinks
+                completion(true)
+            } else {
+                print("ERROR")
+                completion(false)
             }
         }
     }
 }
+

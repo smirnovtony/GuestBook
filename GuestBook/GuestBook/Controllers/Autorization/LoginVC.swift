@@ -60,17 +60,18 @@ class LoginVC: UIViewController {
     //MARK: - Actions
 
     @IBAction func loginButtonTapped(_ sender: Any) {
-        if let email = self.emailField.text,
-           let password = self.passwordField.text {
-            NetworkManager.shared.login(withEmail: email, password: password)
-        } else {
-            self.alertLogIn(title: "Error!", message: "Fill in all fields!")
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            if NetworkManager.shared.token.isEmpty {
-                self.alertLogIn(title: "Error!", message: "Authorization Failed")
+        if let email = self.emailField.text, let password = self.passwordField.text {
+            if email.isEmpty || password.isEmpty {
+                self.alertLogIn(title: "Error!", message: "Fill in all fields!")
             } else {
-                self.performSegue(withIdentifier: "LoadingVC", sender: Any?.self)
+                NetworkManager.shared.login(withEmail: email, password: password)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    if NetworkManager.shared.token.isEmpty {
+                        self.alertLogIn(title: "Error!", message: "Authorization Failed")
+                    } else {
+                        self.performSegue(withIdentifier: "LoadingVC", sender: Any?.self)
+                    }
+                }
             }
         }
     }

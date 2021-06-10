@@ -12,7 +12,7 @@ class Answer: Mappable {
     var createdAt: String = ""
     var id: Int?
     var message: String = ""
-    var postId: String = ""
+    var postId: Int?
     var updatedAt: String = ""
     var userId: Int = 0
     required init?(map: Map) {

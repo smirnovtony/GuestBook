@@ -26,7 +26,11 @@ class MyTableViewCell: UITableViewCell {
         guard let avatarImage = model.user?.avatar else { return }
         guard let url = URL(string: avatarImage ) else { return }
         UIImage.loadFrom(url: url) { image in
+            if image != nil {
             self.avatarImage.image = image
+            } else {
+                self.avatarImage.image = UIImage(named: "Photography")
+            }
         }
         self.nameLabel.text = model.user?.name
         self.titleLabel.text = model.title

@@ -24,9 +24,11 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     }
     
     var selectedMessageId: [Answer]?
+    var selectedComment: Int?
     
     private let totalEnteries = NetworkManager.shared.meta?.total
     private var currentPage = 1
+    let userAdmin = UserDefaults.standard.value(forKey: "isAdmin")
     
     //MARK: - Lifecycle
     
@@ -57,7 +59,16 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if comments[indexPath.row].answersCount != 0 {
             self.selectedMessageId = comments[indexPath.row].answers
+            self.selectedComment = comments[indexPath.row].id
             self.performSegue(withIdentifier: "ShowAnswers", sender: selectedMessageId)
+        } else {
+            guard let userStatement = userAdmin else { return }
+            self.selectedComment = comments[indexPath.row].id
+            if let userRightsStatus = userStatement as? Int {
+                if userRightsStatus == 1 {
+                    self.performSegue(withIdentifier: "adminAnswer", sender: selectedComment)
+                }
+            }
         }
     }
     
@@ -72,10 +83,15 @@ class GetListVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     //MARK: - Functions
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        guard segue.identifier == "ShowAnswers",
-              let model = sender as? [Answer],
-              let vc =   segue.destination as? AnswersVC else { return }
-        vc.answers = model
+        if segue.identifier == "ShowAnswers" {
+            guard let model = sender as? [Answer] else { return }
+            guard let vc = segue.destination as? AnswersVC else { return }
+            vc.answers = model
+        } else if segue.identifier == "adminAnswer" {
+            guard let model2 = sender as? Int? else { return }
+            guard let vc = segue.destination as? NewAnswer else { return }
+            vc.postId = model2
+        }
     }
     
     private func loading() {
