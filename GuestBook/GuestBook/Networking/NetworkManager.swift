@@ -23,8 +23,6 @@ class NetworkManager {
     var loadedComments: [Comment] = []
     var meta: Meta?
     var links: Links?
-//    var isAdmin: Int?
-    
     
     var path: String { return EndPoints.baseURL + EndPoints.path }
 
@@ -67,9 +65,7 @@ class NetworkManager {
         guard let url = URL(string: self.path + "/auth/login") else { return }
 
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: self.doRequestWithHeaders()).responseJSON { (response) in
-            Swift.debugPrint(response)
             guard response.error == nil else { return }
-
             if response.data != nil {
                 switch response.result {
                 case .success(let value):
@@ -207,9 +203,7 @@ class NetworkManager {
         let headers: HTTPHeaders = ["Authorization": "Bearer \(UserDefaults.standard.value(forKey: "tokenData") ?? getAccessToken())"]
         
         Alamofire.request(url, method: .post, parameters: parameters, encoding: URLEncoding.httpBody, headers: headers).responseJSON { (response) in
-            print("!!!!!!!!!!!!!!!!!!!!!!!!!!!\(response.description)")
             if response.response?.statusCode == 200 {
-                print(response as Any)
                 let resultDict = response.value as! [String: Any]
                 self.dict = resultDict
                 let resultData = Mapper<Comment>().mapArray(JSONObject: resultDict["data"])

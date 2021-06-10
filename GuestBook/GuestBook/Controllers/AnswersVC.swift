@@ -49,7 +49,6 @@ class AnswersVC: UIViewController, UITableViewDataSource, UITableViewDelegate {
     //MARK: - TableView
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(answers.count)
         return answers.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -51,7 +51,6 @@ class NewComment: UIViewController {
     
     @IBAction func addCommennt(_ sender: Any) {
         if commentTitle.isEmpty || commentText.isEmpty {
-            print(commentTitle, commentText)
             alert(title: "Error", message: "Fill in all the fields!")
         } else {
             NetworkManager.shared.addComment(with: commentTitle, message: commentText) { (success) in
